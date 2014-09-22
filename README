@@ -1,0 +1,14 @@
+Bootstrap.css修改过，改了许多主要样式。要使用Bootstrap的原来的样式则须导入bootstrap.min.css即可。
+使用之前记得删除Runtime文件夹
+自己创建的css以及js文件存放在./public/css和./public/js中，图片文件存放在./public/img中。
+
+	数据库(可见文件夹中的weshop.sql文件)
+	user				---			用户主要信息表
+	info				---			用户信息表
+	address				---			用户地址表
+	category			---			商品分类表	
+	cart				---			购物车
+	goods				---			商品
+	deal				---			成交纪录
+
+如果不需要响应式布局，则须导入non-responsive.css，不过前端会有奇怪的问题。

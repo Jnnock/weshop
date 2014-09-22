@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+
+.intro1{
+	color:#666666;
+	font-size:12px;
+	padding-top:70px;
+	padding-bottom:30px;
+}.intro2{
+	color:#666666;
+	font-size:12px;
+	padding-top:20px;
+	padding-bottom:30px;
+}
+.introText{
+	margin-top:10px;
+}

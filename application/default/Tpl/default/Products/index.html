@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>weshop::商品</title>
+
+    <!-- Bootstrap -->
+     <!-- Bootstrap -->
+    <link href="__ROOT__/library/bootstrap/bootstrap.css" rel="stylesheet">
+	<link href="__ROOT__/public/css/all.css" rel="stylesheet">
+	<link href="__ROOT__/public/css/products.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+	<include file="Public:header" />
+  	
+  	
+  	
+    <div class="container theFirstDivSep">
+<!-- 产品介绍 缩略图 -->
+		<div class="row">
+
+      <div class="col-md-3">
+        <div class="bs-component hidden-xs">
+              <div class="list-group">
+                <a href="#" class="list-group-item active"><b>全部分类</b></a>
+                <a href="#" class="list-group-item"><b>荤菜</b></a>
+                <a href="#" class="list-group-item"><b>素菜</b></a>
+                <a href="#" class="list-group-item"><b>汤类</b></a>
+                <a href="#" class="list-group-item"><b>食材</b></a>
+              </div>
+          </div>
+        </div> <!-- NAV -->
+
+      <div class="col-md-1"></div>
+
+      <div class="col-md-4">
+        <div class="well">
+          看，我是一款商品
+        </div>
+      </div>
+
+      </div>  <!-- ROW -->
+
+		</div> <!-- CONTAINER -->
+	
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="__ROOT__/library/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="__ROOT__/library/bootstrap/bootstrap.min.js"></script>
+  	<script type="text/javascript">
+    	$(function() {
+    		$("#header2").attr("class","active");
+    	});
+    </script>
+  </body>
+</html>
