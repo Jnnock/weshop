@@ -85,14 +85,14 @@
               <button type="button" class="close" data-dismiss="alert">×</button>
               <strong>Oh 不!</strong><b> <a href="#" class="alert-link">保存新名字失败</a> 请重试.</b>
             </div>
-            <p class="blog-post-meta">截至September 23, 2014</p>
+            <p class="blog-post-meta">截至<?php echo ($nowTime); ?></p>
 
             <p>您一共成交XX笔.一共积分XXX分.</p>
             <hr>
             <p>July 6, 2014 我买了第三份菜品.</p>
             <p>March 3, 2014 我买了第二份菜品.</p>
             <p>January 21, 2014 我买了第一份菜品.</p>
-            <p>January 1, 2014 我来到了这个市场.</p>
+            <p><?php echo ($bornTime); ?> 我来到了这个市场.</p>
             
           </div><!-- /.blog-post -->
 

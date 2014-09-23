@@ -44,8 +44,11 @@ class IndexAction extends BaseAction {
 
 	public function home() {
 		if ($_SESSION['userId']) {
-			$info       = M("Info");
-			$this->name = $info->where("user_id={$_SESSION['userId']}")->getField('name');
+			$info           = M("Info");
+			$user           = M("Users");
+			$this->name     = $info->where("user_id={$_SESSION['userId']}")->getField('name');
+			$this->nowTime  = date('Y年m月d日 H时');
+			$this->bornTime = $user->where("id={$_SESSION['userId']}")->getField('reg_time');
 			$this->display("home");
 		} else {
 			$this->display("login");

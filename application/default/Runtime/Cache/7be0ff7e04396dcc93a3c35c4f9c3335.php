@@ -45,7 +45,7 @@
               </ul>
             </li>
             <li>
-              <a href="__APP__/Index/login"><span class="glyphicon glyphicon-user"> 用户</span></a>
+              <a href="__APP__/Index/home"><span class="glyphicon glyphicon-user"> 用户</span></a>
             </li>
             <li>
               <a href="__APP__/Products/index"><span class="glyphicon glyphicon-list-alt"> 全部分类</span></a>
