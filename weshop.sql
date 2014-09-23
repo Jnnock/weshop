@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2014-09-22 09:55:43
+-- Generation Time: 2014-09-23 09:40:56
 -- 服务器版本： 5.6.20
 -- PHP Version: 5.4.30
 
@@ -28,8 +28,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `address` (
 `id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `user_id` int(11) DEFAULT NULL,
+  `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -41,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `cart` (
 `id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
   `goods_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -51,8 +52,8 @@ CREATE TABLE IF NOT EXISTS `cart` (
 
 CREATE TABLE IF NOT EXISTS `category` (
 `id` int(11) NOT NULL,
-  `name` varchar(25) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `name` varchar(25) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -67,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `deal` (
   `status` int(11) DEFAULT '0',
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `number` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -78,11 +79,11 @@ CREATE TABLE IF NOT EXISTS `deal` (
 CREATE TABLE IF NOT EXISTS `goods` (
 `id` int(11) NOT NULL,
   `category_id` int(11) DEFAULT NULL,
-  `name` varchar(30) DEFAULT NULL,
-  `image` varchar(99) DEFAULT NULL,
-  `introduce` varchar(255) DEFAULT NULL,
+  `name` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `image` varchar(99) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `introduce` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -92,8 +93,9 @@ CREATE TABLE IF NOT EXISTS `goods` (
 
 CREATE TABLE IF NOT EXISTS `info` (
 `id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `user_id` int(11) DEFAULT NULL,
+  `name` varchar(25) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -103,10 +105,11 @@ CREATE TABLE IF NOT EXISTS `info` (
 
 CREATE TABLE IF NOT EXISTS `users` (
 `id` int(11) NOT NULL,
-  `account` varchar(25) NOT NULL,
-  `password` varchar(75) NOT NULL,
+  `email` varchar(35) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `phone` int(15) NOT NULL,
+  `password` varchar(75) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `reg_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables

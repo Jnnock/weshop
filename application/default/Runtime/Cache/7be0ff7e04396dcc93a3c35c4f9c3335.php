@@ -84,6 +84,27 @@
         <div class="well">
           看，我是一款商品
         </div>
+        <div class="well">
+          看，我是一款商品
+        </div>
+        <div class="well">
+          看，我是一款商品
+        </div>
+        <div class="well">
+          看，我是一款商品
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="well">
+          看，我是一款商品
+        </div>
+        <div class="well">
+          看，我是一款商品
+        </div>
+        <div class="well">
+          看，我是一款商品
+        </div>
       </div>
 
       </div>  <!-- ROW -->

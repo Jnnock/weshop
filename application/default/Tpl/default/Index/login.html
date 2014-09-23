@@ -27,40 +27,60 @@
         <div id="sign">
           <form class="form-signin" role="form">
             <h2 class="form-signin-heading">请登入</h2>
-            <input type="email" class="form-control" placeholder="您的邮箱" required autofocus>
-            <input type="password" class="form-control" placeholder="您的密码" required>
+            <input type="email" class="form-control" id="userEmail" placeholder="您的手机号" required autofocus>
+            <input type="password" class="form-control" id="userPwd" placeholder="您的密码" required>
             <!--<div class="checkbox">
               <label>
                 <input type="checkbox" value="remember-me"> Remember me
               </label>
             </div>-->
             <div class="row col-md-6">
-              <button class="btn btn-lg btn-primary btn-block" type="button">Sign in</button>
+              <button class="btn btn-lg btn-primary btn-block" onclick="signIn()" type="button">Sign in</button>
             </div>
             <div class="row col-md-3"></div>
             <div class="row col-md-6">
               <button class="btn btn-lg btn-info btn-block" type="button" onclick="register()">Register</button>
             </div>
           </form><!-- SIGN IN -->
+
         </div>
 
           <div id="register" style="display:none">
           <form class="form-signin" role="form">
             <h2 class="form-signin-heading">欢迎注册</h2>
-            <input type="email" class="form-control" placeholder="您的邮箱" required autofocus>
-            <input type="email" class="form-control" placeholder="您的手机号码" required>
-            <input type="password" class="form-control" placeholder="设置您的密码" required>
+            <input type="email" class="form-control" placeholder="您的邮箱" id="regEmail" required autofocus>
+            <input type="text" class="form-control" placeholder="您的手机号码" id="regPhone" required>
+            <input type="password" class="form-control" placeholder="设置您的密码" id="regPwd" required>
             <div class="row col-md-6">
               <button class="btn btn-lg btn-primary btn-block" type="button" onclick="returnToSign()">Return</button>
             </div>
             <div class="row col-md-3"></div>
             <div class="row col-md-6">
-              <button class="btn btn-lg btn-info btn-block" type="button">Register</button>
+              <button class="btn btn-lg btn-info btn-block" type="button" onclick="registerAccount()">Register</button>
             </div>
           </form><!-- REGISTER -->
-        </div>
-        </div> <!-- /container -->
 
+        </div>
+        
+        </div> <!-- /container -->
+        <div id="contorlSucc" class="row" style="margin-top:30px;display:none">
+          <div class="col-md-4"></div>
+          <div class="bs-component  col-md-5">
+              <div class="alert alert-dismissable alert-success">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <div id="success"></div>
+              </div>
+            </div>
+          </div>
+          <div id="contorlErr" class="row" style="margin-top:30px;display:none">
+          <div class="col-md-4"></div>
+          <div class="bs-component  col-md-5">
+              <div class="alert alert-dismissable alert-danger">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <div id="error"></div>
+              </div>
+            </div>
+          </div>
     
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -68,5 +88,10 @@
     <script src="__ROOT__/public/js/login.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="__ROOT__/library/bootstrap/bootstrap.min.js"></script>
+    <script>
+      var PUBLIC = "__PUBLIC__";
+      var ROOT = "__ROOT__";
+      var APP = "__APP__";
+    </script>
   </body>
 </html>
