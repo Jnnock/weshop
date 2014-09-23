@@ -69,7 +69,6 @@
 		
 		
 		<div class="container">
-      
           <div class="jumbotron" style="margin-top:34px">
             <h2>新品上市</h2>
             <p>配料：XXX,XXX,XXX,XXX,XXX.</p><p>烹饪方法：XXXXXXXXXXXXXXXXX..</p>
@@ -78,8 +77,7 @@
           </div>
      
         
-        <div class="row">
-          <div class="col-md-4">
+          
           <div class="panel panel-primary">
             <div class="panel-heading">
               <h3 class="panel-title">新品推荐</h3>
@@ -88,9 +86,7 @@
               <p>佐料:XXX,XXX,XXX,XX,XX</p>
               <p>配料:XXX,XXX,XXX,XX,XX</p>
             </div>
-          </div>
             </div><!-- 新品 -->
-            <div class=" col-md-4">
             <div class="panel panel-warning">
               <div class="panel-heading">
                 <h3 class="panel-title">限时优惠</h3>
@@ -100,55 +96,7 @@
                 <p>配料:XXX,XXX,XXX,XX,XX</p>
               </div>
             </div>
-            </div>
-            <div class=" col-md-4">
-            <div class="panel panel-warning">
-              <div class="panel-heading">
-                <h3 class="panel-title">限时优惠</h3>
-              </div>
-                <div class="panel-body">
-                <p>佐料:XXX,XXX,XXX,XX,XX</p>
-                <p>配料:XXX,XXX,XXX,XX,XX</p>
-              </div>
-            </div>
-            </div>
-            <div class=" col-md-4">
-            <div class="panel panel-warning">
-              <div class="panel-heading">
-                <h3 class="panel-title">限时优惠</h3>
-              </div>
-                <div class="panel-body">
-                <p>佐料:XXX,XXX,XXX,XX,XX</p>
-                <p>配料:XXX,XXX,XXX,XX,XX</p>
-              </div>
-            </div>
-            </div>
-            <div class=" col-md-4">
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-                <h3 class="panel-title">限时优惠</h3>
-              </div>
-                <div class="panel-body">
-                <p>佐料:XXX,XXX,XXX,XX,XX</p>
-                <p>配料:XXX,XXX,XXX,XX,XX</p>
-              </div>
-            </div>
-            </div>
-            <div class=" col-md-4">
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-                <h3 class="panel-title">限时优惠</h3>
-              </div>
-                <div class="panel-body">
-                <p>佐料:XXX,XXX,XXX,XX,XX</p>
-                <p>配料:XXX,XXX,XXX,XX,XX</p>
-              </div>
-            </div>
-            </div>
-
-
           </div>
-        </div>
 	
 
 

@@ -64,7 +64,7 @@
         <div id="sign">
           <form class="form-signin" role="form">
             <h2 class="form-signin-heading">请登入</h2>
-            <input type="email" class="form-control" id="userEmail" placeholder="您的邮箱" required autofocus>
+            <input type="email" class="form-control" id="userEmail" placeholder="您的手机号" required autofocus>
             <input type="password" class="form-control" id="userPwd" placeholder="您的密码" required>
             <!--<div class="checkbox">
               <label>

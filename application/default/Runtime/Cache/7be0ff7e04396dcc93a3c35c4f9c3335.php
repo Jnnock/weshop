@@ -80,32 +80,43 @@
 
       <div class="col-md-1"></div>
 
-      <div class="col-md-4">
-        <div class="well">
-          看，我是一款商品
-        </div>
-        <div class="well">
-          看，我是一款商品
-        </div>
-        <div class="well">
-          看，我是一款商品
-        </div>
-        <div class="well">
-          看，我是一款商品
-        </div>
-      </div>
+      <div class="col-md-8">
+        <div class="row"> 
+          <div class="col-md-6">
+            <div class="well">
+              看，我是一款商品
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="well">
+              看，我是一款商品
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="well">
+              看，我是一款商品
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="well">
+              看，我是一款商品
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="well">
+              看，我是一款商品
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="well">
+              看，我是一款商品
+            </div>
+          </div>
 
-      <div class="col-md-4">
-        <div class="well">
-          看，我是一款商品
+
         </div>
-        <div class="well">
-          看，我是一款商品
-        </div>
-        <div class="well">
-          看，我是一款商品
-        </div>
-      </div>
+
+      
 
       </div>  <!-- ROW -->
 
