@@ -47,6 +47,12 @@ function registerAccount (){
 		} else if (parseInt(xmlHttp.responseText)==1){
 			document.getElementById("contorlErr").style.display = "block";
 			document.getElementById("error").innerHTML = "出错啦biu~!";
+		} else if (parseInt(xmlHttp.responseText)==1){
+			document.getElementById("contorlErr").style.display = "block";
+			document.getElementById("error").innerHTML = "您的手机号已注册~!";
+		} else if (parseInt(xmlHttp.responseText)==1){
+			document.getElementById("contorlErr").style.display = "block";
+			document.getElementById("error").innerHTML = "您的邮箱已注册~!";
 		}
 	};
 	xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");

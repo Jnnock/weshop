@@ -6,13 +6,24 @@ class IndexAction extends BaseAction {
 	}
 
 	public function reg() {
-		$user               = M("Users");
+		$user = M("Users");
+		if ($user->where("phone={$_POST['phone']}")->find()) {
+			echo 2;
+			return;
+		} else if ($user->where("email={$_POST['email']}")->find()) {
+			echo 3;
+			return;
+		}
 		$data['email']      = $_POST['email'];
 		$data['phone']      = $_POST['phone'];
 		$data['password']   = md5($_POST['pwd']);
 		$result             = $user->add($data);
 		$id                 = $user->where("phone={$_POST['phone']}")->getField('id');
 		$_SESSION["userId"] = $id;
+		$info               = M("Info");
+		$datas['user_id']   = $id;
+		$datas['name']      = $_POST['phone'];
+		$info->add($datas);
 		if ($result) {
 			echo 0;
 		} else {
@@ -31,11 +42,23 @@ class IndexAction extends BaseAction {
 		}
 	}
 
-	public function login() {
+	public function home() {
 		if ($_SESSION['userId']) {
+			$info       = M("Info");
+			$this->name = $info->where("user_id={$_SESSION['userId']}")->getField('name');
 			$this->display("home");
 		} else {
 			$this->display("login");
+		}
+	}
+
+	public function saveName() {
+		$info   = M("Info");
+		$result = $info->where("user_id={$_SESSION['userId']}")->setField('name', $_GET['newname']);
+		if ($result) {
+			echo 1;
+		} else {
+			echo 2;
 		}
 	}
 

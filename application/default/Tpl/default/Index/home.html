@@ -42,9 +42,12 @@
             </div>
           </div>
 
-
           <div class="blog-post">
-            <h5>欢迎回来XXX</h5>
+            <h5>欢迎回来 <span id="newName">{$name}</span><a href="javascript:void(0)" style="font-size:12px" data-toggle="modal" data-target=".modal"> 修改名字</a></h5>
+            <div class="alert alert-dismissable alert-danger" id="saveErr" style="display:none">
+              <button type="button" class="close" data-dismiss="alert">×</button>
+              <strong>Oh 不!</strong><b> <a href="#" class="alert-link">保存新名字失败</a> 请重试.</b>
+            </div>
             <p class="blog-post-meta">截至September 23, 2014</p>
 
             <p>您一共成交XX笔.一共积分XXX分.</p>
@@ -85,6 +88,30 @@
     </div><!-- /.container -->
 
 
+<div class="modal fade" id="modal1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">请输入您的新名字</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group row">
+          <div class="col-md-1"></div>
+          <label for="inputEmail" class="col-md-2 control-label">名字:</label>
+          <div class="col-md-8">
+            <input type="text" class="form-control" id="inputName" placeholder="名字">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary" onclick="saveName()">保存修改</button>
+      </div>
+    </div>
+  </div>
+</div>
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -92,6 +119,12 @@
     <script src="__ROOT__/library/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="__ROOT__/library/bootstrap/bootstrap.min.js"></script>
+    <script>
+      var PUBLIC = "__PUBLIC__";
+      var ROOT = "__ROOT__";
+      var APP = "__APP__";
+    </script>
+    <script src="__ROOT__/public/js/home.js"></script>
   </body>
 </html>
 
