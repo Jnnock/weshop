@@ -6,13 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <title>weshop::商品</title>
+    <title>weshop::Theproduct</title>
 
     <!-- Bootstrap -->
      <!-- Bootstrap -->
     <link href="__ROOT__/library/bootstrap/bootstrap.css" rel="stylesheet">
-	<link href="__ROOT__/public/css/all.css" rel="stylesheet">
-	<link href="__ROOT__/public/css/products.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -59,77 +57,61 @@
       </div>
       </div> 
 <!-- NAV BAR -->
-  	
-    <div class="container theFirstDivSep">
-<!-- 产品介绍 缩略图 -->
-		<div class="row">
-
-      <div class="col-md-3">
-        <div class="bs-component hidden-xs">
-              <div class="list-group">
-                <a href="#" class="list-group-item active"><b>全部分类</b></a>
-                <a href="#" class="list-group-item"><b>荤菜</b></a>
-                <a href="#" class="list-group-item"><b>素菜</b></a>
-                <a href="#" class="list-group-item"><b>汤类</b></a>
-                <a href="#" class="list-group-item"><b>食材</b></a>
-              </div>
-          </div>
-        </div> <!-- NAV -->
-
-      <div class="col-md-1"></div>
-
-      <div class="col-md-8">
-        <div class="row"> 
-          <div class="col-md-6">
-            <div class="well">
-              看，我是一款商品
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="well">
-              看，我是一款商品
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="well">
-              看，我是一款商品
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="well">
-              看，我是一款商品
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="well">
-              看，我是一款商品
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="well">
-              看，我是一款商品
-            </div>
-          </div>
-
-
+    <div class="container" style="margin-top:90px">
+        <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-8">
+        <ul class="breadcrumb">
+            <li><a href="#">全部菜品</a></li>
+            <li><a href="#">荤菜</a></li>
+            <li class="active">XXX</li>
+        </ul>
+    </div>
+        <div class="col-md-2"></div>
         </div>
-
-      
-
-      </div>  <!-- ROW -->
-
-		</div> <!-- CONTAINER -->
-	
-
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <div class="row">
+            <div class="col-md-1"></div>
+        <div class="col-md-6">
+            <div class="row">
+            <div class="col-md-6">
+            <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjEwMCIgeT0iMTAwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEzcHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MjAweDIwMDwvdGV4dD48L3N2Zz4=" style="width: 200px; height: 200px;">	
+            </div>
+            <div class="col-md-6">
+                <h4>菜名XXX</h4>
+                <p>延年益寿，防身祛病。</p>
+                <p>规格:300g 产地:阿拉斯加</p>
+                <div class="row">
+                    <div class="col-md-5" style="color:red;font-size:20px">¥10</div>
+                    <div class="btn-group col-md-7">
+                      <a href="#" class="btn btn-info">立即购买～</a>
+                      <a href="#" class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">加入购物车</a></li>
+                      </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top:20px">商品介绍：</div>
+</div>
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <div class="list-group">
+                <a href="#" class="list-group-item">
+                  <h4 class="list-group-item-heading">推荐菜品1</h4>
+                  <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                </a>
+                <a href="#" class="list-group-item">
+                  <h4 class="list-group-item-heading">推荐菜品2</h4>
+                  <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                </a>
+              </div>
+            </div>	
+            <div class="col-md-1"></div>
+        </div>
+    </div>
     <script src="__ROOT__/library/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="__ROOT__/library/bootstrap/bootstrap.min.js"></script>
-  	<script type="text/javascript">
-    	$(function() {
-    		$("#header2").attr("class","active");
-    	});
-    </script>
   </body>
 </html>

@@ -23,7 +23,7 @@
 		<div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a href="../" class="navbar-brand">电商名</a>
+          <a href="../" class="navbar-brand" style="color:green"><b>绿行者</b></a>
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -122,6 +122,50 @@
         <div class="col-xs-12">
           <div class="panel panel-success">
             <div class="panel-heading">
+              <h3 class="panel-title">香菇油菜</h3>
+            </div>
+            <div class="panel-body row">
+              <div class="col-xs-4">
+                <img src="__ROOT__/public/img/001_02.png" width="120"/>
+              </div>
+              <div class="col-xs-1"></div>
+              <div class="col-xs-6">
+                <p><b>菜名XXXXX</b> <br />
+                佐料:XXX,XXX <br />
+                配料:XXX,XXX<br />
+                查看详细
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <!-- 新品 -->
+        <div class="col-xs-12">
+          <div class="panel panel-warning">
+            <div class="panel-heading">
+              <h3 class="panel-title">限时优惠</h3>
+            </div>
+            <div class="panel-body row">
+              <div class="col-xs-4">
+                <img src="__ROOT__/public/img/002_02.png" width="120"/>
+              </div>
+              <div class="col-xs-1"></div>
+              <div class="col-xs-6">
+                <p><b>菜名XXXXX</b><br/>
+                佐料:XXX,XXX <br />
+                配料:XXX,XXX<br />
+                 <span class="label label-info"><b>$100.01</b></span><br />   
+              </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 限时 -->
+        <div class="col-xs-12">
+          <div class="panel panel-success">
+            <div class="panel-heading">
               <h3 class="panel-title">新品推荐</h3>
             </div>
             <div class="panel-body row">
@@ -139,6 +183,7 @@
           </div>
         </div>
       </div>
+
         <!-- 新品 -->
         <div class="col-xs-12">
           <div class="panel panel-warning">
@@ -160,9 +205,52 @@
             </div>
           </div>
         </div>
+
         <!-- 限时 -->
+        <div class="col-xs-12">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title">新品推荐</h3>
+            </div>
+            <div class="panel-body row">
+              <div class="col-xs-4">
+                <img src="__ROOT__/public/img/001_02.png" width="120"/>
+              </div>
+              <div class="col-xs-1"></div>
+              <div class="col-xs-6">
+                <p><b>菜名XXXXX</b> <b>$100.01</b><br />
+                佐料:XXX,XXX <br />
+                配料:XXX,XXX<br />
+                查看详细
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-      <!--MOBILE-->
+
+        <!-- 新品 -->
+        <div class="col-xs-12">
+          <div class="panel panel-warning">
+            <div class="panel-heading">
+              <h3 class="panel-title">限时优惠</h3>
+            </div>
+            <div class="panel-body row">
+              <div class="col-xs-4">
+                <img src="__ROOT__/public/img/002_02.png" width="120"/>
+              </div>
+              <div class="col-xs-1"></div>
+              <div class="col-xs-6">
+                <p><b>菜名XXXXX</b> <b>$100.01</b><br />
+                佐料:XXX,XXX <br />
+                配料:XXX,XXX<br />
+                查看详细
+              </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--MOBILE over-->
       
       <!-- PC -->
       <div class="row visible-lg visible-md" style="margin-top:34px">
@@ -173,16 +261,17 @@
             </div>
             <div class="panel-body row">
               <div class="col-md-6">
-                <p><b>菜名XXXXX</b></p>
+                <p><a href="__APP__/Products/theproduct"><b>菜名XXXXX</b></a></p>
                 <p>佐料:XXX,XXX,XXX,XX,XX</p>
                 <p>配料:XXX,XXX,XXX,XX,XX</p>
               </div>
               <div class="col-md-4">
-                <img src="__ROOT__/public/img/001.png" width="150"/>
+                <a href="__APP__/Products/theproduct"><img src="__ROOT__/public/img/001.png" width="150"/></a>
               </div>
             </div>
           </div>
         </div>
+
         <!-- New -->
         <div class="col-md-4">
           <div class="panel panel-success">
@@ -191,17 +280,17 @@
             </div>
             <div class="panel-body row">
               <div class="col-md-6">
-                <p><b>菜名XXXXX</b></p>
+                <p><a href="__APP__/Products/theproduct"><b>菜名XXXXX</b></a></p>
                 <p>佐料:XXX,XXX,XXX,XX,XX</p>
                 <p>配料:XXX,XXX,XXX,XX,XX</p>
               </div>
               <div class="col-md-4">
-                <img src="__ROOT__/public/img/003.png" width="150"/>
+                <a href="__APP__/Products/theproduct"><a href="__APP__/Products/theproduct"><img src="__ROOT__/public/img/003.png" width="150"/></a>
               </div>
             </div>
-            
           </div>
         </div>
+
         <!-- 新品 -->
         <div class=" col-md-4">
           <div class="panel panel-warning">
@@ -210,18 +299,18 @@
             </div>
             <div class="panel-body row">
               <div class="col-md-6">
-                <p><b>菜名XXXXX</b></p>
+                <p><a href="__APP__/Products/theproduct"><b>菜名XXXXX</b></a></p>
                 <p>佐料:XXX,XXX,XXX,XX,XX</p>
                 <p>配料:XXX,XXX,XXX,XX,XX</p>
               </div>
               <div class="col-md-4">
-                <img src="__ROOT__/public/img/002.png" width="150"/>
+                <a href="__APP__/Products/theproduct"><img src="__ROOT__/public/img/002.png" width="150"/></a>
               </div>
             </div>
           </div>
         </div>
+
         <!-- 限时 -->
-        
         <div class="col-md-4">
           <div class="panel panel-success">
             <div class="panel-heading">
@@ -229,17 +318,17 @@
             </div>
             <div class="panel-body row">
               <div class="col-md-6">
-                <p><b>菜名XXXXX</b></p>
+                <p><a href="__APP__/Products/theproduct"><b>菜名XXXXX</b></a></p>
                 <p>佐料:XXX,XXX,XXX,XX,XX</p>
                 <p>配料:XXX,XXX,XXX,XX,XX</p>
               </div>
               <div class="col-md-4">
-                <img src="__ROOT__/public/img/004.png" width="150"/>
+                <a href="__APP__/Products/theproduct"><img src="__ROOT__/public/img/004.png" width="150"/></a>
               </div>
             </div>
-            
           </div>
         </div>
+
         <!-- 新品 -->
         <div class=" col-md-4">
           <div class="panel panel-warning">
@@ -248,18 +337,18 @@
             </div>
             <div class="panel-body row">
               <div class="col-md-6">
-                <p><b>菜名XXXXX</b></p>
+                <p><a href="__APP__/Products/theproduct"><b>菜名XXXXX</b></a></p>
                 <p>佐料:XXX,XXX,XXX,XX,XX</p>
                 <p>配料:XXX,XXX,XXX,XX,XX</p>
               </div>
               <div class="col-md-4">
-                <img src="__ROOT__/public/img/005.png" width="150"/>
+                <a href="__APP__/Products/theproduct"><img src="__ROOT__/public/img/005.png" width="150"/></a>
               </div>
             </div>
           </div>
         </div>
+
         <!-- 限时 -->
-        
         <div class=" col-md-4">
           <div class="panel panel-warning">
             <div class="panel-heading">
@@ -267,19 +356,18 @@
             </div>
             <div class="panel-body row">
               <div class="col-md-6">
-                <p><b>菜名XXXXX</b></p>
+                <p><a href="__APP__/Products/theproduct"><b>菜名XXXXX</b></a></p>
                 <p>佐料:XXX,XXX,XXX,XX,XX</p>
                 <p>配料:XXX,XXX,XXX,XX,XX</p>
               </div>
               <div class="col-md-4">
-                <img src="__ROOT__/public/img/001.png" width="150"/>
+                <a href="__APP__/Products/theproduct"><img src="__ROOT__/public/img/001.png" width="150"/></a>
               </div>
             </div>
           </div>
         </div>
-        <!-- 限时 -->
       </div>
-      <!-- PC -->
+      <!-- PC over -->
     </div>
     <!-- CONTAINER -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

@@ -68,7 +68,7 @@ function signIn (){
 	xmlHttp.onreadystatechange=function(){
 		if(xmlHttp.readyState==4 && xmlHttp.status==200){
 			if (parseInt(xmlHttp.responseText)==0) {
-				window.location = APP;
+				window.location = APP+"/Index/home";
 			} else if (parseInt(xmlHttp.responseText)==1){
 				document.getElementById("contorlErr").style.display = "block";
 				document.getElementById("error").innerHTML = "密码错啦~!";

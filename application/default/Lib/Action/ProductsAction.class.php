@@ -11,8 +11,8 @@ class ProductsAction extends BaseAction {
 	}
 
 	public function theProduct() {
-		$num = $_GET['num'];
-		$this->assign("num", $num);
+		//$num = $_GET['num'];
+		//$this->assign("num", $num);
 		$this->display("");
 	}
 

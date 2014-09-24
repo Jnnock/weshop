@@ -65,6 +65,29 @@ class IndexAction extends BaseAction {
 		}
 	}
 
+	public function saveArd() {
+		$address          = M("Address");
+		$data['user_id']  = $_SESSION['userId'];
+		$data['province'] = $_GET['province'];
+		$data['city']     = $_GET['city'];
+		$data['area']     = $_GET['area'];
+		$data['detail']   = $_GET['detail'];
+		$result           = $address->add($data);
+		if ($result) {
+			echo 1;
+		} else {
+			echo 2;
+		}
+	}
+
+	public function address() {
+		$info       = M("Info");
+		$address    = M("Address");
+		$this->name = $info->where("user_id={$_SESSION['userId']}")->getField("name");
+		$this->adr  = $address->where("user_id={$_SESSION['userId']}")->select();
+		$this->display("userAddress");
+	}
+
 	public function aboutus() {
 		$this->display("aboutus");
 	}
