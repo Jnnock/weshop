@@ -46,39 +46,42 @@
             <h5>您好 <span id="newName">{$name}</span></h5>
             <div class="alert alert-dismissable alert-danger" id="saveErr" style="display:none">
               <button type="button" class="close" data-dismiss="alert">×</button>
-              <strong>Oh 不!</strong><b> <a href="#" class="alert-link">保存新地址失败</a> 请重试.</b>
+              <strong>Oh 不!</strong><b> <a href="#" class="alert-link">保存新密码失败</a> 请重试.</b>
             </div>
             <div>
               <div class="form-group row" style="margin-top:20px;margin-left:20px;">
-                <p for="inputEmail" class="control-label">添加您的地址:</p>
-                <div class="col-md-2">
-                  <input type="text" class="form-control" required="required" id="sheng" placeholder="省">
+                <p for="inputEmail" class="control-label">您的原密码:</p>
+                <div class="col-md-6">
+                  <input type="password" class="form-control" required="required" id="old" placeholder="密码" onblur="check()">
                 </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-2">
-                  <input type="text" class="form-control" required="required" id="shi" placeholder="市">
-                </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-2">
-                  <input type="text" class="form-control" required="required" id="qu" placeholder="区">
-                </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-3">
-                  <input type="text" class="form-control" required="required" id="xiangxi" placeholder="详细">
+                <div class="col-md-6 checkResult" id="oldPwdCheck">
                 </div>
               </div>
-            </div>
+            <div class="form-group row" style="margin-top:20px;margin-left:20px;">
+                <p for="inputEmail" class="control-label">您的新密码:</p>
+                <div class="col-md-6">
+                  <input type="password" class="form-control" required="required" id="new" placeholder="密码" onblur="check()">
+                </div>
+                <div class="col-md-6 checkResult" id="newPwdCheck">
+                </div>
+              </div>
+            <div class="form-group row" style="margin-top:20px;margin-left:20px;">
+                <p for="inputEmail" class="control-label">重复您的密码:</p>
+                <div class="col-md-6">
+                  <input type="password" class="form-control" required="required" id="repeat" placeholder="密码" onblur="check()">
+                </div>
+                <div class="col-md-6 checkResult" id="repeatPwdCheck">
+                </div>
+              </div>
             <div class="row">
               <div class="col-md-10"></div>
               <div class="col-md-2">
-              <a href="javascript:void(0)" onclick="saveAdr()" class="btn btn-info btn-xs"><b>添加地址</b></a>
+              <button href="javascript:void(0)" id='subPwd' onclick="subPwd()" class="btn btn-info btn-xs"><b>确认修改</b></button>
               </div>
             </div>
+          </div>
             <hr>
-            <div id="adrlist"></div>
-            <foreach name="adr" item="vo">
-            <p>{$vo.province} {$vo.city} {$vo.area} {$vo.detail}</p>
-            </foreach>
+            
           </div><!-- /.blog-post -->
 
           
@@ -120,8 +123,13 @@
       var PUBLIC = "__PUBLIC__";
       var ROOT = "__ROOT__";
       var APP = "__APP__";
+      window.onload = function () {
+        getSomething();
+        document.getElementById('subPwd').disabled = 'disabled';
+      };
     </script>
     <script src="__ROOT__/public/js/home.js"></script>
+    <script src="__ROOT__/public/js/md5.js"></script>
   </body>
 </html>
 

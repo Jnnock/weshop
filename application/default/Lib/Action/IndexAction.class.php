@@ -88,6 +88,36 @@ class IndexAction extends BaseAction {
 		$this->display("userAddress");
 	}
 
+	public function pwd() {
+		$user       = M("User");
+		$info       = M("Info");
+		$this->name = $info->where("user_id={$_SESSION['userId']}")->getField("name");
+		$this->display("userPwd");
+	}
+
+	public function checkPwd() {
+		$user = M("Users");
+		$pwd  = $user->where("id={$_SESSION['userId']}")->getField('password');
+		//$this->error();
+		echo $pwd;
+	}
+
+	public function savePwd() {
+		$user               = M("Users");
+		$result             = $user->where("id={$_SESSION['userId']}")->setField("password", $_GET['newPwd']);
+		$_SESSION['userId'] = "";
+		if ($result) {
+			echo 1;
+		} else {
+			echo 2;
+		}
+	}
+
+	public function out() {
+		$_SESSION['userId'] = "";
+		echo "<script>window.location='__APP__/Index';</script>";
+	}
+
 	public function aboutus() {
 		$this->display("aboutus");
 	}

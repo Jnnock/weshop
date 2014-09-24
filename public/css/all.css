@@ -11,16 +11,10 @@ body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { font-family: Micro
 	margin-top:80px;
 }
 
-.footer{
-	
+.checkResult {
+	color: red;
 }
 
-.text_right{
-	text-align:right;
-}
-.text_center{
-	text-align:center;
-}
-.text_left{
-	text-align:left;
+.disabledBtn {
+	cursor: no-drop；
 }

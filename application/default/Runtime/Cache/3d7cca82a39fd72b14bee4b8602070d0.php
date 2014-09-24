@@ -80,19 +80,44 @@
           </div>
 
           <div class="blog-post">
-            <h5>欢迎回来 <span id="newName"><?php echo ($name); ?></span><a href="javascript:void(0)" style="font-size:12px" data-toggle="modal" data-target=".modal"> 修改名字</a></h5>
+            <h5>您好 <span id="newName"><?php echo ($name); ?></span></h5>
             <div class="alert alert-dismissable alert-danger" id="saveErr" style="display:none">
               <button type="button" class="close" data-dismiss="alert">×</button>
-              <strong>Oh 不!</strong><b> <a href="#" class="alert-link">保存新名字失败</a> 请重试.</b>
+              <strong>Oh 不!</strong><b> <a href="#" class="alert-link">保存新密码失败</a> 请重试.</b>
             </div>
-            <p class="blog-post-meta">截至<?php echo ($nowTime); ?></p>
-
-            <p>您一共成交XX笔.一共积分XXX分.</p>
+            <div>
+              <div class="form-group row" style="margin-top:20px;margin-left:20px;">
+                <p for="inputEmail" class="control-label">您的原密码:</p>
+                <div class="col-md-6">
+                  <input type="password" class="form-control" required="required" id="old" placeholder="密码" onblur="check()">
+                </div>
+                <div class="col-md-6 checkResult" id="oldPwdCheck">
+                </div>
+              </div>
+            <div class="form-group row" style="margin-top:20px;margin-left:20px;">
+                <p for="inputEmail" class="control-label">您的新密码:</p>
+                <div class="col-md-6">
+                  <input type="password" class="form-control" required="required" id="new" placeholder="密码" onblur="check()">
+                </div>
+                <div class="col-md-6 checkResult" id="newPwdCheck">
+                </div>
+              </div>
+            <div class="form-group row" style="margin-top:20px;margin-left:20px;">
+                <p for="inputEmail" class="control-label">重复您的密码:</p>
+                <div class="col-md-6">
+                  <input type="password" class="form-control" required="required" id="repeat" placeholder="密码" onblur="check()">
+                </div>
+                <div class="col-md-6 checkResult" id="repeatPwdCheck">
+                </div>
+              </div>
+            <div class="row">
+              <div class="col-md-10"></div>
+              <div class="col-md-2">
+              <button href="javascript:void(0)" id='subPwd' onclick="subPwd()" class="btn btn-info btn-xs"><b>确认修改</b></button>
+              </div>
+            </div>
+          </div>
             <hr>
-            <p>July 6, 2014 我买了第三份菜品.</p>
-            <p>March 3, 2014 我买了第二份菜品.</p>
-            <p>January 21, 2014 我买了第一份菜品.</p>
-            <p><?php echo ($bornTime); ?> 我来到了这个市场.</p>
             
           </div><!-- /.blog-post -->
 
@@ -124,30 +149,6 @@
     </div><!-- /.container -->
 
 
-<div class="modal fade" id="modal1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h4 class="modal-title">请输入您的新名字</h4>
-      </div>
-      <div class="modal-body">
-        <div class="form-group row">
-          <div class="col-md-1"></div>
-          <label for="inputEmail" class="col-md-2 control-label">名字:</label>
-          <div class="col-md-8">
-            <input type="text" class="form-control" id="inputName" placeholder="名字">
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-        <button type="button" class="btn btn-primary" onclick="saveName()">保存修改</button>
-      </div>
-    </div>
-  </div>
-</div>
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -159,7 +160,12 @@
       var PUBLIC = "__PUBLIC__";
       var ROOT = "__ROOT__";
       var APP = "__APP__";
+      window.onload = function () {
+        getSomething();
+        document.getElementById('subPwd').disabled = 'disabled';
+      };
     </script>
     <script src="__ROOT__/public/js/home.js"></script>
+    <script src="__ROOT__/public/js/md5.js"></script>
   </body>
 </html>
