@@ -69,7 +69,7 @@
         <div class="col-md-7 blog-main">
           <div class="row visible-xs visible-sm" style="margin-bottom:30px">
             <div class="col-xs-4 col-sm-4">
-             <a href="__APP__/Index/pwd"><img src="__ROOT__/public/img/book.png" width="70" /></a>
+              <a href="__APP__/Index/pwd"><img src="__ROOT__/public/img/book.png" width="70" /></a>
             </div>
             <div class="col-xs-4 col-sm-4">
               <a href="__APP__/Index/address"><img src="__ROOT__/public/img/map.png" width="70" /></a>
@@ -80,49 +80,54 @@
           </div>
 
           <div class="blog-post">
-            <h5>您好 <span id="newName"><?php echo ($name); ?></span></h5>
-            <div class="alert alert-dismissable alert-danger" id="saveErr" style="display:none">
-              <button type="button" class="close" data-dismiss="alert">×</button>
-              <strong>Oh 不!</strong><b> <a href="#" class="alert-link">保存新地址失败</a> 请重试.</b>
+            <ul class="nav nav-tabs">
+          <li class="active"><a href="#home" data-toggle="tab">我的所有订单</a></li>
+          <li><a href="#profile" data-toggle="tab">待付款</a></li>
+          <li><a href="#already" data-toggle="tab">已成交</a></li>
+
+        </ul>
+        <div id="myTabContent" class="tab-content">
+          <div class="tab-pane fade active in" id="home">
+            <div class="well" style="margin-top:20px">
+              Look, I'm in a well!
             </div>
-            <div>
-              <div class="form-group row" style="margin-top:20px;margin-left:20px;">
-                <p for="inputEmail" class="control-label">添加您的地址:</p>
-                <div class="col-md-2">
-                  <input type="text" class="form-control" required="required" id="sheng" placeholder="省" autofocus>
-                </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-2">
-                  <input type="text" class="form-control" required="required" id="shi" placeholder="市">
-                </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-2">
-                  <input type="text" class="form-control" required="required" id="qu" placeholder="区">
-                </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-3">
-                  <input type="text" class="form-control" required="required" id="xiangxi" placeholder="详细">
-                </div>
-              </div>
+            <div class="well" style="margin-top:20px">
+              Look, I'm in a well!
             </div>
-            <div class="row">
-              <div class="col-md-10"></div>
-              <div class="col-md-2">
-              <a href="javascript:void(0)" onclick="saveAdr()" class="btn btn-info btn-xs"><b>添加地址</b></a>
-              </div>
+            <div class="well" style="margin-top:20px">
+              Look, I'm in a well!
             </div>
-            <hr>
-            <div id="adrlist">
-              <h4>您曾经用过地址</h4>
-              <?php if(is_array($adr)): foreach($adr as $key=>$vo): ?><p><?php echo ($vo["province"]); ?> <?php echo ($vo["city"]); ?> <?php echo ($vo["area"]); ?> <?php echo ($vo["detail"]); ?></p><?php endforeach; endif; ?>
+          </div>
+          <div class="tab-pane fade" id="profile">
+            <div class="well" style="margin-top:20px">
+              Look, I'm in a well!
             </div>
+            <div class="well" style="margin-top:20px">
+              Look, I'm in a well!
+            </div>
+            <div class="well" style="margin-top:20px">
+              Look, I'm in a well!
+            </div>
+          </div>
+          <div class="tab-pane fade" id="already">
+            <div class="well" style="margin-top:20px">
+              Look, I'm in a well!
+            </div>
+            <div class="well" style="margin-top:20px">
+              Look, I'm in a well!
+            </div>
+            <div class="well" style="margin-top:20px">
+              Look, I'm in a well!
+            </div>
+          </div>
+        </div>
             
           </div><!-- /.blog-post -->
 
           
         </div><!-- /.blog-main -->
 
-        <div class="col-sm-3 col-md-3 col-sm-offset-1 blog-sidebar visible-lg visible-md">
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar visible-lg visible-md">
           <div class="sidebar-module">
             <h4>交易管理</h4>
             <ol class="list-unstyled">

@@ -69,13 +69,13 @@
         <div class="col-md-7 blog-main">
           <div class="row visible-xs visible-sm" style="margin-bottom:30px">
             <div class="col-xs-4 col-sm-4">
-              <img src="__ROOT__/public/img/book.png" width="70" />
+              <a href="__APP__/Index/pwd"><img src="__ROOT__/public/img/book.png" width="70" /></a>
             </div>
             <div class="col-xs-4 col-sm-4">
-              <img src="__ROOT__/public/img/map.png" width="70" />
+              <a href="__APP__/Index/address"><img src="__ROOT__/public/img/map.png" width="70" /></a>
             </div>
             <div class="col-xs-4 col-sm-4">
-              <img src="__ROOT__/public/img/shop.png" width="70" />
+              <a href="__APP__/Index/order"><img src="__ROOT__/public/img/shop.png" width="70" /></a>
             </div>
           </div>
 
@@ -89,7 +89,7 @@
               <div class="form-group row" style="margin-top:20px;margin-left:20px;">
                 <p for="inputEmail" class="control-label">您的原密码:</p>
                 <div class="col-md-6">
-                  <input type="password" class="form-control" required="required" id="old" placeholder="密码" onblur="check()">
+                  <input type="password" class="form-control" required="required" id="old" placeholder="密码" onblur="check()" autofocus>
                 </div>
                 <div class="col-md-6 checkResult" id="oldPwdCheck">
                 </div>
@@ -117,7 +117,7 @@
               </div>
             </div>
           </div>
-            <hr>
+            
             
           </div><!-- /.blog-post -->
 
@@ -128,10 +128,7 @@
           <div class="sidebar-module">
             <h4>交易管理</h4>
             <ol class="list-unstyled">
-              <li><a href="#">我的订单</a></li>
-              <li><a href="#">已成交</a></li>
-              <li><a href="#">未成交</a></li>
-              <li><a href="#">待付款</a></li>
+              <li><a href="__APP__/Index/order">我的所有订单</a></li>
             </ol>
           </div>
           <div class="sidebar-module">
@@ -139,7 +136,7 @@
             <ol class="list-unstyled">
               <li><a href="__APP__/Index/address">我的地址</a></li>
               <li><a href="__APP__/Index/pwd">密码修改</a></li>
-              <li><a href="__APP__/Index/out">退出</a></li>
+              <li><a href="javascript:void(0)" onclick="logOut()">退出</a></li>
             </ol>
           </div>
         </div><!-- /.blog-sidebar -->

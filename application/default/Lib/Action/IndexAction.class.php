@@ -81,18 +81,27 @@ class IndexAction extends BaseAction {
 	}
 
 	public function address() {
-		$info       = M("Info");
-		$address    = M("Address");
-		$this->name = $info->where("user_id={$_SESSION['userId']}")->getField("name");
-		$this->adr  = $address->where("user_id={$_SESSION['userId']}")->select();
-		$this->display("userAddress");
+		if ($_SESSION['userId']) {
+			$info       = M("Info");
+			$address    = M("Address");
+			$this->name = $info->where("user_id={$_SESSION['userId']}")->getField("name");
+			$this->adr  = $address->where("user_id={$_SESSION['userId']}")->select();
+			$this->display("userAddress");
+		} else {
+			$this->display("login");
+		}
+
 	}
 
 	public function pwd() {
-		$user       = M("User");
-		$info       = M("Info");
-		$this->name = $info->where("user_id={$_SESSION['userId']}")->getField("name");
-		$this->display("userPwd");
+		if ($_SESSION['userId']) {
+			$user       = M("User");
+			$info       = M("Info");
+			$this->name = $info->where("user_id={$_SESSION['userId']}")->getField("name");
+			$this->display("userPwd");
+		} else {
+			$this->display('login');
+		}
 	}
 
 	public function checkPwd() {
@@ -100,6 +109,15 @@ class IndexAction extends BaseAction {
 		$pwd  = $user->where("id={$_SESSION['userId']}")->getField('password');
 		//$this->error();
 		echo $pwd;
+	}
+
+	public function order() {
+		if ($_SESSION['userId']) {
+			$this->display("userOrder");
+		} else {
+			$this->display("login");
+		}
+
 	}
 
 	public function savePwd() {
@@ -115,7 +133,12 @@ class IndexAction extends BaseAction {
 
 	public function out() {
 		$_SESSION['userId'] = "";
-		echo "<script>window.location='__APP__/Index';</script>";
+		if ($_SESSION['userId'] == "") {
+			echo 1;
+		} else {
+			echo 2;
+		}
+		//echo "<script>window.location='__APP__/Index';</script>";
 	}
 
 	public function aboutus() {

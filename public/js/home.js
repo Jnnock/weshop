@@ -105,3 +105,19 @@ function subPwd () {
 	};
 	xmlHttp.send(); 
 }
+
+function logOut () {
+	createXMLRequest();
+	var url= APP+"/Index/out";
+	xmlHttp.open("GET",url);
+	xmlHttp.onreadystatechange=function(){
+		//if(xmlHttp.readyState==4 && xmlHttp.status==200){
+		 if(xmlHttp.responseText==1){
+		 	window.location = APP+"/Index";
+		 } else {
+		 	alert("退出错误！")；
+		 }
+		//alert(secret);
+	};
+	xmlHttp.send(); 
+}

@@ -85,7 +85,7 @@
           <div id="register" style="display:none">
           <form class="form-signin" role="form">
             <h2 class="form-signin-heading">欢迎注册</h2>
-            <input type="email" class="form-control" placeholder="您的邮箱" id="regEmail" required autofocus>
+            <input type="email" class="form-control" placeholder="您的邮箱" id="regEmail" required>
             <input type="text" class="form-control" placeholder="您的手机号码" id="regPhone" required>
             <input type="password" class="form-control" placeholder="设置您的密码" id="regPwd" required>
             <div class="row col-md-6">
