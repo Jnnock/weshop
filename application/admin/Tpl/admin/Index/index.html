@@ -25,41 +25,24 @@
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">网站总览</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="#">添加商品分类</a></li>
-            <li><a href="#">添加商品</a></li>
-            <li><a href="#">修改商品信息</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="">自提站点管理</a></li>
-            <li><a href="">用户管理</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="">管理员管理</a></li>
-            <li><a href="">关于我们</a></li>
-          </ul>
-        </div>
+        <include file="Public:nav" />
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">网站总览</h1>
+          <h2 class="page-header">网站总览</h2>
 
           <div class="row placeholders">
             <canvas id="canvas" height="230" width="600"></canvas>
           </div>
 
-          <h2 class="sub-header">近期数据</h2>
+          <h2 class="sub-header">今天交易数据</h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
+                  <th>收货人</th>
+                  <th>联系电话</th>
+                  <th>操作</th>
+                  <th>订单生成时间</th>
                 </tr>
               </thead>
               <tbody>
@@ -187,15 +170,20 @@
     <script src="__ROOT__/library/bootstrap/Chart.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="__ROOT__/library/bootstrap/bootstrap.min.js"></script>
-    <link href="__ROOT__/public/js/background.js" rel="stylesheet">
+    <script src="__ROOT__/public/js/background.js"></script>
+    <script src="__ROOT__/public/js/admin.js"></script>
     <script type="text/javascript">
-    	$(function() {
-    		$("#header1").attr("class","active");
+      var PUBLIC = "__PUBLIC__";
+      var ROOT = "__ROOT__";
+      var APP = "__APP__";
+      document.getElementById('webAll').className += " active";
+      $(function() {
         var ctx = document.getElementById("canvas").getContext("2d");
-    window.myLine = new Chart(ctx).Line(lineChartData, {
-      responsive: true
-    });
-    	});
+        window.myLine = new Chart(ctx).Line(lineChartData, {
+          responsive: true
+        });
+      });
+
 var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
     var lineChartData = {
       labels : ["January","February","March","April","May","June","July"],
@@ -223,7 +211,6 @@ var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
       ]
 
     }
-
     </script>
   </body>
 </html>

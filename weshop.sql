@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2014-09-23 15:52:15
+-- Generation Time: 2014-09-25 14:09:54
 -- 服务器版本： 5.6.20
 -- PHP Version: 5.4.30
 
@@ -29,8 +29,20 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `address` (
 `id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
-  `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `province` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `city` varchar(15) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `area` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `detail` varchar(99) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `address`
+--
+
+INSERT INTO `address` (`id`, `user_id`, `province`, `city`, `area`, `detail`) VALUES
+(2, 24, '山东', '青岛', '市南', '123'),
+(3, 24, '山东', '青岛', '111', '222'),
+(4, 24, '山东', '青岛', '333', '222');
 
 -- --------------------------------------------------------
 
@@ -52,7 +64,8 @@ CREATE TABLE IF NOT EXISTS `cart` (
 
 CREATE TABLE IF NOT EXISTS `category` (
 `id` int(11) NOT NULL,
-  `name` varchar(25) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL
+  `name` varchar(25) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `count` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -95,7 +108,14 @@ CREATE TABLE IF NOT EXISTS `info` (
 `id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
   `name` varchar(25) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `info`
+--
+
+INSERT INTO `info` (`id`, `user_id`, `name`) VALUES
+(3, 24, '刘一峰');
 
 -- --------------------------------------------------------
 
@@ -108,15 +128,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(35) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `phone` varchar(15) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(75) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `reg_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `reg_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `phone`, `password`, `reg_time`) VALUES
-(24, 'liu1feng@hotmail.com', '15692383272', '202cb962ac59075b964b07152d234b70', '2014-09-23 07:44:14');
+INSERT INTO `users` (`id`, `email`, `phone`, `password`, `reg_time`, `status`) VALUES
+(24, 'liu1feng@hotmail.com', '15692383272', '202cb962ac59075b964b07152d234b70', '2014-09-23 07:44:14', 1);
 
 --
 -- Indexes for dumped tables
@@ -172,7 +193,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `cart`
 --
@@ -197,7 +218,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `info`
 --
 ALTER TABLE `info`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `users`
 --

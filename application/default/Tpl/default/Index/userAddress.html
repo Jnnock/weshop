@@ -30,17 +30,7 @@
       <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-7 blog-main">
-          <div class="row visible-xs visible-sm" style="margin-bottom:30px">
-            <div class="col-xs-4 col-sm-4">
-             <a href="__APP__/Index/pwd"><img src="__ROOT__/public/img/book.png" width="70" /></a>
-            </div>
-            <div class="col-xs-4 col-sm-4">
-              <a href="__APP__/Index/address"><img src="__ROOT__/public/img/map.png" width="70" /></a>
-            </div>
-            <div class="col-xs-4 col-sm-4">
-              <a href="__APP__/Index/order"><img src="__ROOT__/public/img/shop.png" width="70" /></a>
-            </div>
-          </div>
+          <include file="Public:mobileHomeNav" />
 
           <div class="blog-post">
             <h5>您好 <span id="newName">{$name}</span></h5>
@@ -86,23 +76,8 @@
 
           
         </div><!-- /.blog-main -->
-
-        <div class="col-sm-3 col-md-3 col-sm-offset-1 blog-sidebar visible-lg visible-md">
-          <div class="sidebar-module">
-            <h4>交易管理</h4>
-            <ol class="list-unstyled">
-              <li><a href="__APP__/Index/order">我的所有订单</a></li>
-            </ol>
-          </div>
-          <div class="sidebar-module">
-            <h4>个人设置</h4>
-            <ol class="list-unstyled">
-              <li><a href="__APP__/Index/address">我的地址</a></li>
-              <li><a href="__APP__/Index/pwd">密码修改</a></li>
-              <li><a href="javascript:void(0)" onclick="logOut()">退出</a></li>
-            </ol>
-          </div>
-        </div><!-- /.blog-sidebar -->
+        <include file="Public:homeRight" />
+        
 
       </div><!-- /.row -->
 

@@ -81,3 +81,29 @@ function signIn (){
 	xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	xmlHttp.send("email="+email+"&pwd="+pwd); 
 }
+
+function signInAsAdmin () {
+	createXMLRequest();
+	var email=document.getElementById('userEmail').value;
+	var pwd=document.getElementById('userPwd').value;
+	var url=APP+"/Index/sign";
+	xmlHttp.open("POST",url);
+	xmlHttp.onreadystatechange=function(){
+		if(xmlHttp.readyState==4 && xmlHttp.status==200){
+			if (parseInt(xmlHttp.responseText)==0) {
+				document.getElementById("contorlErr").style.display = "block";
+				document.getElementById("error").innerHTML = "您没钱权限~!";
+			} else if (parseInt(xmlHttp.responseText)==1){
+				window.location = APP+"/Index/index";
+			} else if (parseInt(xmlHttp.responseText)==2) {
+				document.getElementById("contorlErr").style.display = "block";
+				document.getElementById("error").innerHTML = "您的密码输入有误~!";
+			}
+		} else {
+			document.getElementById("contorlErr").style.display = "block";
+			document.getElementById("error").innerHTML = "服务器出错~";
+		}
+	};
+	xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xmlHttp.send("email="+email+"&pwd="+pwd); 
+}

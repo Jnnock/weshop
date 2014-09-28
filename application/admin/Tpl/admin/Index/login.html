@@ -88,16 +88,24 @@
 
           <form class="form-signin" role="form">
             <h2 class="form-signin-heading">请登入</h2>
-            <input type="email" class="form-control" placeholder="您的邮箱" required autofocus>
-            <input type="password" class="form-control" placeholder="您的密码" required>
+            <input type="email" class="form-control" id="userEmail" placeholder="您的邮箱" required autofocus>
+            <input type="password" id="userPwd" class="form-control" placeholder="您的密码" required>
             <!--<div class="checkbox">
               <label>
                 <input type="checkbox" value="remember-me"> Remember me
               </label>
             </div>-->
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <button class="btn btn-lg btn-primary btn-block" type="button" onclick="signInAsAdmin()">Sign in</button>
           </form>
-
+          <div id="contorlErr" class="row" style="margin-top:30px;display:none">
+          <div class="col-md-4"></div>
+          <div class="bs-component  col-md-5">
+              <div class="alert alert-dismissable alert-danger">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <div id="error"></div>
+              </div>
+            </div>
+          </div>
         </div> <!-- /container -->
 
     
@@ -106,8 +114,11 @@
     <script src="__ROOT__/library/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="__ROOT__/library/bootstrap/bootstrap.min.js"></script>
+    <script src="__ROOT__/public/js/login.js"></script>
     <script type="text/javascript">
-    	
+      var PUBLIC = "__PUBLIC__";
+      var ROOT = "__ROOT__";
+      var APP = "__APP__";
     </script>
   </body>
 </html>

@@ -115,7 +115,7 @@ function logOut () {
 		 if(xmlHttp.responseText==1){
 		 	window.location = APP+"/Index";
 		 } else {
-		 	alert("退出错误！")；
+		 	alert("退出错误！");
 		 }
 		//alert(secret);
 	};
