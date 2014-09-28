@@ -43,8 +43,12 @@ class IndexAction extends BaseAction {
 	}
 
 	public function addType() {
-		$category      = M("Category");
-		$data['name']  = $_GET['name'];
+		$category     = M("Category");
+		$data['name'] = $_GET['name'];
+		if ($_GET['name'] == "") {
+			$this->error('分类名不能为空!');
+			return;
+		}
 		$data['count'] = 0;
 		$result        = $category->add($data);
 		if ($result) {
@@ -108,11 +112,17 @@ class IndexAction extends BaseAction {
 		}
 		$goods = M("Goods");
 		$goods->create();
+		if ($_POST['name'] == "" || $_POST['introduce'] == "" || $_POST['dosing'] == "" || $_POST['word'] == "" || $_POST['price'] == "" || $_POST['standrad'] == "") {
+			$this->error('不能为空!');
+			return;
+		}
 		$newName      = rand();
 		$goods->image = $info[0]['savename'];
 		$goods->add();
-		$this->mark = '1';
-		header("Location: ./list");
+		$category = M("Category");
+		$count    = $category->where("id={$_POST['category_id']}")->getField('count');
+		$category->where("id={$_POST['category_id']}")->setField('count', $count += 1);
+		header("Location: ./listAction");
 	}
 
 	public function listAction() {
@@ -179,11 +189,15 @@ class IndexAction extends BaseAction {
 	}
 
 	public function addAdr() {
-		$city           = M("City");
-		$c              = $city->where("id={$_GET['city']}")->getField('city');
-		$a              = $city->where("id={$_GET['area']}")->getField('area');
-		$data['city']   = $c;
-		$data['area']   = $a;
+		$city         = M("City");
+		$c            = $city->where("id={$_GET['city']}")->getField('city');
+		$a            = $city->where("id={$_GET['area']}")->getField('area');
+		$data['city'] = $c;
+		$data['area'] = $a;
+		if ($GET['detail'] == "") {
+			$this->error('详细不能为空!');
+			return;
+		}
 		$data['detail'] = $_GET['detail'];
 		$invite         = M("Invite");
 		$result         = $invite->add($data);
@@ -197,6 +211,16 @@ class IndexAction extends BaseAction {
 	public function delAdr() {
 		$invite = M("Invite");
 		$result = $invite->where("id={$_GET['adrid']}")->delete();
+		if ($result) {
+			echo 1;
+		} else {
+			echo 0;
+		}
+	}
+
+	public function delGoods() {
+		$goods  = M("Goods");
+		$result = $goods->where("id={$_GET['goodsid']}")->delete();
 		if ($result) {
 			echo 1;
 		} else {

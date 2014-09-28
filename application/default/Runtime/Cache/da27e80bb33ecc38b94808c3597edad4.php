@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="zh-cn">
   <head>
     <meta charset="utf-8">
@@ -19,15 +19,52 @@
     <![endif]-->
   </head>
   <body>
-	<include file="Public:header" />
+	<!-- 导航条 -->
+		<div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="../" class="navbar-brand" style="color:green"><b>绿行者</b></a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><span class="glyphicon glyphicon-th-list"> 分类 </span><span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="themes">
+                <li><a href="../default/">荤菜</a></li>
+                <li><a href="javascript:void(0)">素菜</a></li>
+                <li><a href="javascript:void(0)">汤类</a></li>
+                <li><a href="javascript:void(0)">食材</a></li>
+                <!--<li class="divider"></li>-->
+              </ul>
+            </li>
+            <li>
+              <a href="__APP__/Index/home"><span class="glyphicon glyphicon-user"> 用户</span></a>
+            </li>
+            <li>
+              <a href="__APP__/Products/index"><span class="glyphicon glyphicon-list-alt"> 全部分类</span></a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="__APP__/Index/aboutus"><span class="glyphicon glyphicon-info-sign"> 关于我们</span></a></li>
+            <li><a href="__APP__/Products/cart" target="_blank"><span class="glyphicon glyphicon-shopping-cart"> 购物车</span></a></li>
+          </ul>
+        </div>
+      </div>
+      </div> 
+<!-- NAV BAR -->
     <div class="container" style="margin-top:90px">
         <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-8">
         <ul class="breadcrumb">
-            <li><a href="__APP__/Index/index">全部菜品</a></li>
-            <li><a href="#">{$type}</a></li>
-            <li class="active">{$commodity.name}</li>
+            <li><a href="#">全部菜品</a></li>
+            <li><a href="#">荤菜</a></li>
+            <li class="active">XXX</li>
         </ul>
     </div>
         <div class="col-md-2"></div>
@@ -40,8 +77,8 @@
             <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjEwMCIgeT0iMTAwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjEzcHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+MjAweDIwMDwvdGV4dD48L3N2Zz4=" style="width: 200px; height: 200px;">	
             </div>
             <div class="col-md-6">
-                <h4>{$commodity.name}</h4>
-                <p>{$commodity.word}</p>
+                <h4>菜名XXX</h4>
+                <p>延年益寿，防身祛病。</p>
                 <p>规格:300g 产地:阿拉斯加</p>
                 <div class="row">
                     <div class="col-md-5" style="color:red;font-size:20px">¥10</div>
@@ -55,7 +92,7 @@
                 </div>
             </div>
         </div>
-        <div style="margin-top:20px">商品介绍：{$commodity.introduce}</div>
+        <div style="margin-top:20px">商品介绍：</div>
 </div>
             <div class="col-md-1"></div>
             <div class="col-md-3">

@@ -57,8 +57,7 @@
       </div>
     </nav>
 
-  <?php
- $type=[]; ?>
+
   <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
@@ -80,8 +79,7 @@
   </ul>
 </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <input type="hidden" id="hidCls" value="<?php echo ($value); ?>" />
-          <h4>按分类查询</h4>
+          <h4>用户信息</h4>
           <!--<?php if(($mark == 1)): ?><div class="alert alert-dismissable alert-success">
               <button type="button" class="close" data-dismiss="alert">×</button>
               <strong>很好!</strong> 你成功的发布了新商品 </a>.
@@ -92,56 +90,31 @@
               <strong>糟糕!</strong> 你的商品发布失败，请重试 </a>.
             </div><?php endif; ?>-->
             <div style="margin-top:40px">
-              <div class="col-md-2">
-                <select id="category" class="form-control" onchange="typeSearch()">
-                  <option value="0">全部分类</option>
-                  <?php if(is_array($classify)): foreach($classify as $key=>$type): ?><option value="<?php echo ($type["id"]); ?>"><?php echo ($type["name"]); ?></option><?php endforeach; endif; ?>
-                </select>
-              </div>
               <table class="table table-striped table-hover ">
   <thead>
     <tr>
-      <th>#<?php echo ($count); ?></th>
-      <th>分类</th>
-      <th>商品名</th>
-      <th>操作</th>
+      <th>用户编号</th>
+      <th>用户电话号码</th>
+      <th>用户邮箱</th>
+      <th>注册时间</th>
     </tr>
   </thead>
   <tbody>
-    <?php if(is_array($commodity)): foreach($commodity as $key=>$commodity): ?><tr id="list<?php echo ($commodity["id"]); ?>">
-      <td>
-        <?php echo ($commodity["id"]); ?>
-      </td>
-      <td>
-        <?php
- $typeId = $commodity['category_id']; if (isset($type[$typeId])) { echo $type[$typeId]; } else { header("Content-Type: text/html; charset=utf-8"); $con = mysql_connect('127.0.0.1','root','liu1feng'); mysql_query("SET NAMES utf8"); mysql_select_db('weshop',$con); $sql = 'select * from category where id='.$typeId; $result = mysql_query($sql); while ($row = mysql_fetch_array($result)) { echo $row['name']; $type[$row['id']] = $row['name']; } } ?>  
-      </td>
-      <td><?php echo ($commodity["name"]); ?></td>
-      <td><a href="javascript:void(0)" class="btn btn-info btn-xs">查看 </a>  <a href="javascript:void(0)" class="btn btn-danger btn-xs" onclick="delGoods(<?php echo ($commodity["id"]); ?>)"> 删除</a></td>
-    </tr><?php endforeach; endif; ?>
+      <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+        <td><?php echo ($vo['id']); ?></td>
+        <td><?php echo ($vo['phone']); ?></td>
+        <td><?php echo ($vo['email']); ?></td>
+        <td><?php echo ($vo['reg_time']); ?></td>
+      </tr><?php endforeach; endif; else: echo "" ;endif; ?>
   </tbody>
 </table> 
+<?php echo ($page); ?>
         </div>
       </div>
     </div>
 
     
-<div class="modal fade" id="showResult">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title">操作结果</h4>
-          </div>
-          <div class="modal-body">
-            <p id="changeResult"></p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-          </div>
-        </div>
-      </div>
-    </div>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="__ROOT__/library/jquery.min.js"></script>
     
@@ -150,19 +123,10 @@
     
     <script src="__ROOT__/public/js/admin.js"></script>
     <script type="text/javascript">
-        var PUBLIC = "__PUBLIC__";
-        var ROOT = "__ROOT__";
-        var APP = "__APP__";
-        document.getElementById('list').className += " active";
-        window.onload = function () {
-            var slt=document.getElementById("category");
-            for(var i=0;i<slt.options.length;i++) {
-                if(slt.options[i].value == document.getElementById('hidCls').value){
-                    slt.options[i].selected = true;
-                    return;
-                }
-            }
-        }
+      var PUBLIC = "__PUBLIC__";
+      var ROOT = "__ROOT__";
+      var APP = "__APP__";
+      document.getElementById('manageUsers').className += " active";
     </script> 
   </body>
 </html>

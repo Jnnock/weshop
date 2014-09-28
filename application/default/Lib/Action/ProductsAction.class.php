@@ -11,9 +11,12 @@ class ProductsAction extends BaseAction {
 	}
 
 	public function theProduct() {
-		//$num = $_GET['num'];
-		//$this->assign("num", $num);
-		$this->display("");
+		$good       = M("Goods");
+		$commodity  = $good->where("id={$_GET['good']}")->find();
+		$category   = M("Category");
+		$this->type = $category->where("id={$commodity['category_id']}")->getField('name');
+		$this->assign('commodity', $commodity);
+		$this->display("theProduct");
 	}
 
 	public function cart() {

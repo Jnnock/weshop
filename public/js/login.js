@@ -23,6 +23,10 @@ function registerAccount (){
 	var email=document.getElementById('regEmail').value;
 	var phone=document.getElementById('regPhone').value;
 	var pwd=document.getElementById('regPwd').value;
+	if (email == "" || phone == "" || pwd == "") {
+		alert("这些是必填项目!");
+		return;
+	}
 	var url= APP+"/Index/reg";
 	xmlHttp.open("POST",url);
 	xmlHttp.onreadystatechange=function(){

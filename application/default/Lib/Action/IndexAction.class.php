@@ -2,7 +2,9 @@
 // 本类由系统自动生成，仅供测试用途
 class IndexAction extends BaseAction {
 	public function index() {
-		$this->display("");
+		$goods           = M("Goods");
+		$this->commodity = $goods->order('time desc')->limit(6)->select();
+		$this->display("index");
 	}
 
 	public function reg() {
@@ -14,9 +16,13 @@ class IndexAction extends BaseAction {
 			echo 3;
 			return;
 		}
-		$data['email']      = $_POST['email'];
-		$data['phone']      = $_POST['phone'];
-		$data['password']   = md5($_POST['pwd']);
+		$data['email']    = $_POST['email'];
+		$data['phone']    = $_POST['phone'];
+		$data['password'] = md5($_POST['pwd']);
+		if ($_POST['email'] == "" || $_POST['phone'] == "" || $_POST['pwd'] == "") {
+			$this->error("必填项目不能为空!");
+			return;
+		}
 		$result             = $user->add($data);
 		$id                 = $user->where("phone={$_POST['phone']}")->getField('id');
 		$_SESSION["userId"] = $id;

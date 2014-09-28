@@ -10,7 +10,7 @@
 
     <!-- Bootstrap -->
     <link href="__ROOT__/library/bootstrap/bootstrap.css" rel="stylesheet">
-	<link href="__ROOT__/public/css/dashboard.css" rel="stylesheet">
+  <link href="__ROOT__/public/css/dashboard.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -19,7 +19,7 @@
     <![endif]-->
   </head>
   <body>
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -57,8 +57,7 @@
       </div>
     </nav>
 
-  <?php
- $type=[]; ?>
+
   <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
@@ -80,53 +79,64 @@
   </ul>
 </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <input type="hidden" id="hidCls" value="<?php echo ($value); ?>" />
-          <h4>按分类查询</h4>
-          <!--<?php if(($mark == 1)): ?><div class="alert alert-dismissable alert-success">
-              <button type="button" class="close" data-dismiss="alert">×</button>
-              <strong>很好!</strong> 你成功的发布了新商品 </a>.
-            </div>
-          <?php else: ?>
-            <div class="alert alert-dismissable alert-danger">
-              <button type="button" class="close" data-dismiss="alert">×</button>
-              <strong>糟糕!</strong> 你的商品发布失败，请重试 </a>.
-            </div><?php endif; ?>-->
-            <div style="margin-top:40px">
+          <h4>添加新的自提站点</h4>
+            <div class="row" style="margin-top:20px">
+              <div class="col-md-1"></div>
+              <div class="col-md-1">
+                <b>山东省</b>
+              </div>
               <div class="col-md-2">
-                <select id="category" class="form-control" onchange="typeSearch()">
-                  <option value="0">全部分类</option>
-                  <?php if(is_array($classify)): foreach($classify as $key=>$type): ?><option value="<?php echo ($type["id"]); ?>"><?php echo ($type["name"]); ?></option><?php endforeach; endif; ?>
+                <select class="form-control" id="city" onchange="getArea()">
+                  <option value="0" selected>请选择您的城市</option>
+                  <?php if(is_array($city)): foreach($city as $key=>$city): ?><option value="<?php echo ($city["id"]); ?>"><?php echo ($city["city"]); ?></option><?php endforeach; endif; ?>
                 </select>
               </div>
-              <table class="table table-striped table-hover ">
-  <thead>
-    <tr>
-      <th>#<?php echo ($count); ?></th>
-      <th>分类</th>
-      <th>商品名</th>
-      <th>操作</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php if(is_array($commodity)): foreach($commodity as $key=>$commodity): ?><tr id="list<?php echo ($commodity["id"]); ?>">
-      <td>
-        <?php echo ($commodity["id"]); ?>
-      </td>
-      <td>
-        <?php
- $typeId = $commodity['category_id']; if (isset($type[$typeId])) { echo $type[$typeId]; } else { header("Content-Type: text/html; charset=utf-8"); $con = mysql_connect('127.0.0.1','root','liu1feng'); mysql_query("SET NAMES utf8"); mysql_select_db('weshop',$con); $sql = 'select * from category where id='.$typeId; $result = mysql_query($sql); while ($row = mysql_fetch_array($result)) { echo $row['name']; $type[$row['id']] = $row['name']; } } ?>  
-      </td>
-      <td><?php echo ($commodity["name"]); ?></td>
-      <td><a href="javascript:void(0)" class="btn btn-info btn-xs">查看 </a>  <a href="javascript:void(0)" class="btn btn-danger btn-xs" onclick="delGoods(<?php echo ($commodity["id"]); ?>)"> 删除</a></td>
-    </tr><?php endforeach; endif; ?>
-  </tbody>
-</table> 
+              <div class="col-md-2">
+                <select id="area" class="form-control">
+                  <option value="0" selected>请选择您的区域</option>
+                </select>
+              </div>
+              <div class="col-md-2 form-group has-success">
+                <input class="form-control" id="detail" type="text" placeholder="详细" autofocus>
+              </div>
+              <div class="col-md-1"></div>
+              <div class="col-md-3">
+                <a href="javascript:void(0)" onclick="addAdr()" class="btn btn-info">确定添加</a>
+              </div>
+            </div>
+            <div class="alert alert-dismissable alert-success" id='addSuccess' style="display:none">
+              <button type="button" class="close" data-dismiss="alert">×</button>
+              <strong>很好!</strong> 你成功添加了新分类.
+            </div>
+            <div class="alert alert-dismissable alert-danger" id='addError'  style="display:none">
+              <button type="button" class="close" data-dismiss="alert">×</button>
+              <strong>Oh 不!</strong> 添加失败，请重试.
+            </div>
+            <hr />
+
+            <h4>已经存在的站点</h4>
+            <table class="table table-striped table-hover ">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>站点地址</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php if(is_array($list)): foreach($list as $key=>$types): ?><tr id="type<?php echo ($types["id"]); ?>">
+                <td id="typeId<?php echo ($types["id"]); ?>"><?php echo ($types["id"]); ?></td>
+                <td id="typeName<?php echo ($types["id"]); ?>"><?php echo ($types["city"]); ?>,<?php echo ($types["area"]); ?>,<?php echo ($types["detail"]); ?></td>
+                <td><a href="javascript:void(0)" onclick="deleteAdr(<?php echo ($types["id"]); ?>)" class="btn btn-danger btn-xs">删除</a></td>
+              </tr><?php endforeach; endif; ?>
+            </tbody>
+          </table>
+          <?php echo ($page); ?>
         </div>
       </div>
     </div>
 
-    
-<div class="modal fade" id="showResult">
+    <div class="modal fade" id="showResult">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -137,11 +147,12 @@
             <p id="changeResult"></p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal" onclikc="javascript:window.location='/Index/selfinvite'">关闭</button>
           </div>
         </div>
       </div>
     </div>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="__ROOT__/library/jquery.min.js"></script>
     
@@ -150,19 +161,10 @@
     
     <script src="__ROOT__/public/js/admin.js"></script>
     <script type="text/javascript">
-        var PUBLIC = "__PUBLIC__";
-        var ROOT = "__ROOT__";
-        var APP = "__APP__";
-        document.getElementById('list').className += " active";
-        window.onload = function () {
-            var slt=document.getElementById("category");
-            for(var i=0;i<slt.options.length;i++) {
-                if(slt.options[i].value == document.getElementById('hidCls').value){
-                    slt.options[i].selected = true;
-                    return;
-                }
-            }
-        }
+      var PUBLIC = "__PUBLIC__";
+      var ROOT = "__ROOT__";
+      var APP = "__APP__";
+      document.getElementById('selfInvite').className += " active";
     </script> 
   </body>
 </html>

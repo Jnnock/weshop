@@ -68,16 +68,16 @@
         <div class="col-md-1"></div>
         <div class="col-md-7 blog-main">
           <div class="row visible-xs visible-sm" style="margin-bottom:30px">
-            <div class="col-xs-4 col-sm-4">
-              <a href="__APP__/Index/pwd"><img src="__ROOT__/public/img/book.png" width="70" /></a>
-            </div>
-            <div class="col-xs-4 col-sm-4">
-              <a href="__APP__/Index/address"><img src="__ROOT__/public/img/map.png" width="70" /></a>
-            </div>
-            <div class="col-xs-4 col-sm-4">
-              <a href="__APP__/Index/order"><img src="__ROOT__/public/img/shop.png" width="70" /></a>
-            </div>
-          </div>
+  <div class="col-xs-4 col-sm-4">
+    <a href="__APP__/Index/pwd"><img src="__ROOT__/public/img/book.png" width="70" /></a>
+  </div>
+  <div class="col-xs-4 col-sm-4">
+    <a href="__APP__/Index/address"><img src="__ROOT__/public/img/map.png" width="70" /></a>
+  </div>
+  <div class="col-xs-4 col-sm-4">
+    <a href="__APP__/Index/order"><img src="__ROOT__/public/img/shop.png" width="70" /></a>
+  </div>
+</div>
 
           <div class="blog-post">
             <h5>欢迎回来 <span id="newName"><?php echo ($name); ?></span><a href="javascript:void(0)" style="font-size:12px" data-toggle="modal" data-target=".modal"> 修改名字</a></h5>

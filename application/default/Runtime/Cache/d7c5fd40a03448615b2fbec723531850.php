@@ -254,119 +254,24 @@
       
       <!-- PC -->
       <div class="row visible-lg visible-md" style="margin-top:34px">
-        <div class="col-md-4">
-          <div class="panel panel-success">
-            <div class="panel-heading">
-              <h3 class="panel-title">新品推荐</h3>
-            </div>
-            <div class="panel-body row">
-              <div class="col-md-6">
-                <p><a href="__APP__/Products/theproduct"><b>菜名XXXXX</b></a></p>
-                <p>佐料:XXX,XXX,XXX,XX,XX</p>
-                <p>配料:XXX,XXX,XXX,XX,XX</p>
+        <?php if(is_array($commodity)): foreach($commodity as $key=>$good): ?><div class="col-md-4">
+            <div class="panel panel-success">
+              <div class="panel-heading">
+                <h3 class="panel-title"><?php echo ($good["name"]); ?></h3>
               </div>
-              <div class="col-md-4">
-                <a href="__APP__/Products/theproduct"><img src="__ROOT__/public/img/001.png" width="150"/></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- New -->
-        <div class="col-md-4">
-          <div class="panel panel-success">
-            <div class="panel-heading">
-              <h3 class="panel-title">新品推荐</h3>
-            </div>
-            <div class="panel-body row">
-              <div class="col-md-6">
-                <p><a href="__APP__/Products/theproduct"><b>菜名XXXXX</b></a></p>
-                <p>佐料:XXX,XXX,XXX,XX,XX</p>
-                <p>配料:XXX,XXX,XXX,XX,XX</p>
-              </div>
-              <div class="col-md-4">
-                <a href="__APP__/Products/theproduct"><a href="__APP__/Products/theproduct"><img src="__ROOT__/public/img/003.png" width="150"/></a>
+              <div class="panel-body row">
+                <div class="col-md-6">
+                  <p><a href="__APP__/Products/theproduct?good=<?php echo ($good["id"]); ?>"><b><?php echo ($good["name"]); ?></b></a></p>
+                  <p style="width:150px;color:red;overflow: hidden;white-space: nowrap;word-break: keep-all;text-overflow: ellipsis;"><?php echo ($good["word"]); ?></p>
+                  <p style="width:150px;overflow: hidden;white-space: nowrap;word-break: keep-all;text-overflow: ellipsis;">配料:<?php echo ($good["dosing"]); ?></p>
+                </div>
+                <div class="col-md-4">
+                  <a href="__APP__/Products/theproduct"><img src="__ROOT__/public/img/001.png" width="150"/></a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <!-- 新品 -->
-        <div class=" col-md-4">
-          <div class="panel panel-warning">
-            <div class="panel-heading">
-              <h3 class="panel-title">限时优惠</h3>
-            </div>
-            <div class="panel-body row">
-              <div class="col-md-6">
-                <p><a href="__APP__/Products/theproduct"><b>菜名XXXXX</b></a></p>
-                <p>佐料:XXX,XXX,XXX,XX,XX</p>
-                <p>配料:XXX,XXX,XXX,XX,XX</p>
-              </div>
-              <div class="col-md-4">
-                <a href="__APP__/Products/theproduct"><img src="__ROOT__/public/img/002.png" width="150"/></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 限时 -->
-        <div class="col-md-4">
-          <div class="panel panel-success">
-            <div class="panel-heading">
-              <h3 class="panel-title">新品推荐</h3>
-            </div>
-            <div class="panel-body row">
-              <div class="col-md-6">
-                <p><a href="__APP__/Products/theproduct"><b>菜名XXXXX</b></a></p>
-                <p>佐料:XXX,XXX,XXX,XX,XX</p>
-                <p>配料:XXX,XXX,XXX,XX,XX</p>
-              </div>
-              <div class="col-md-4">
-                <a href="__APP__/Products/theproduct"><img src="__ROOT__/public/img/004.png" width="150"/></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 新品 -->
-        <div class=" col-md-4">
-          <div class="panel panel-warning">
-            <div class="panel-heading">
-              <h3 class="panel-title">限时优惠</h3>
-            </div>
-            <div class="panel-body row">
-              <div class="col-md-6">
-                <p><a href="__APP__/Products/theproduct"><b>菜名XXXXX</b></a></p>
-                <p>佐料:XXX,XXX,XXX,XX,XX</p>
-                <p>配料:XXX,XXX,XXX,XX,XX</p>
-              </div>
-              <div class="col-md-4">
-                <a href="__APP__/Products/theproduct"><img src="__ROOT__/public/img/005.png" width="150"/></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 限时 -->
-        <div class=" col-md-4">
-          <div class="panel panel-warning">
-            <div class="panel-heading">
-              <h3 class="panel-title">限时优惠</h3>
-            </div>
-            <div class="panel-body row">
-              <div class="col-md-6">
-                <p><a href="__APP__/Products/theproduct"><b>菜名XXXXX</b></a></p>
-                <p>佐料:XXX,XXX,XXX,XX,XX</p>
-                <p>配料:XXX,XXX,XXX,XX,XX</p>
-              </div>
-              <div class="col-md-4">
-                <a href="__APP__/Products/theproduct"><img src="__ROOT__/public/img/001.png" width="150"/></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+          <!-- New --><?php endforeach; endif; ?>
       <!-- PC over -->
     </div>
     <!-- CONTAINER -->

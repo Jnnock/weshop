@@ -50,11 +50,32 @@
               <div class="col-md-3 form-group has-success">
                 <input class="form-control" name="name" id="name" type="text" placeholder="商品名"autofocus>
               </div>
-              <div class="col-md-1"></div>
+              <div class="col-md-2">
+                  <div class="input-group">
+                    <span class="input-group-addon">¥ </span>
+                    <input type="text" name="price" class="form-control">
+                  </div>
+              </div>
+              <div class="col-md-3">
+                  <div class="input-group">
+                    <span class="input-group-addon">规格 </span>
+                    <input type="text" class="form-control" name="standrad">
+                    <span class="input-group-addon">g</span>
+                  </div>
+              </div>
             </div>
+            
             <div style="margin-top:20px;margin-bottom:30px;width:40%">
-              <label>选择上传的图片(可以选择多张)</label>
+              <label>选择上传的图片(图片大小为:150px*100px)</label>
               <input class="form-control" name='image' type="file">
+            </div>
+            <div style="margin-top:20px;margin-bottom:30px;width:80%">
+              <label>配料:</label>
+              <textarea class="form-control" name="dosing"></textarea>
+            </div>
+            <div style="margin-top:20px;margin-bottom:30px;width:80%">
+              <label>食物特色:</label>
+              <textarea class="form-control" name="word"></textarea>
             </div>
             <div style="margin-top:20px;margin-bottom:30px;width:80%">
               <label>简短介绍:</label>

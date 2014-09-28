@@ -27,6 +27,10 @@ function logOut () {
 function addType () {
 	createXMLRequest();
 	var name = document.getElementById('typeName').value;
+	if (name == "") {
+		alert('滚粗,分类名不能为空 !');
+		return;
+	}
 	var url= APP+"/Index/addType?name="+name;
 	xmlHttp.open("GET",url);
 	xmlHttp.onreadystatechange=function(){
@@ -48,6 +52,10 @@ function addAdr() {
 	var city = document.getElementById('city').value;
 	var area = document.getElementById('area').value;
 	var detail = document.getElementById('detail').value;
+	if (detail == "") {
+		alert('滚粗,详细地址不能为空 !');
+		return;
+	}
 	var url= APP+"/Index/addAdr?city="+city+"&area="+area+"&detail="+detail;
 	xmlHttp.open("GET",url);
 	xmlHttp.onreadystatechange=function(){
@@ -133,10 +141,6 @@ function modType (tid) {
 	xmlHttp.send(); 
 }
 
-function addImage () {
-	var area = document.getElementById('')
-}
-
 function getArea() {
 	createXMLRequest();
 	var value=document.getElementById('city').value;
@@ -159,4 +163,23 @@ function getArea() {
 function typeSearch() {
 	var value = document.getElementById('category').value;
 	window.location = APP+"/Index/listAction?method="+value;
+}
+
+function delGoods(goods) {
+	createXMLRequest();
+	var url= APP+"/Index/delGoods?goodsid="+goods;
+	xmlHttp.open("GET",url);
+	xmlHttp.onreadystatechange=function(){
+		//if(xmlHttp.readyState==4 && xmlHttp.status==200){
+		 if(xmlHttp.responseText==1){
+		 	document.getElementById('list'+goods).style.display = 'none';
+		 	$('#showResult').modal('show');
+		 	document.getElementById('changeResult').innerHTML = "删除成功～！";
+		 } else {
+		 	$('#showResult').modal('show');
+		 	document.getElementById('changeResult').innerHTML = '删除失败～！';
+		 }
+		//alert(secret);
+	};
+	xmlHttp.send(); 
 }
