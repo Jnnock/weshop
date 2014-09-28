@@ -39,7 +39,7 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">设置 <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#">自提站点设置</a></li>
+                <li><a href="__APP__/Index/selfInvite">自提站点设置</a></li>
                 <li><a href="__APP__/Index/users">用户管理</a></li>
                 <li><a href="#">管理员管理</a></li>
               </ul>
@@ -70,7 +70,7 @@
     <li id="list"><a href="__APP__/Index/listAction">修改商品信息</a></li>
   </ul>
   <ul class="nav nav-sidebar">
-    <li id="selfGet"><a href="">自提站点管理</a></li>
+    <li id="selfInvite"><a href="__APP__/Index/selfinvite">自提站点管理</a></li>
     <li id="manageUsers"><a href="__APP__/Index/users">用户管理</a></li>
   </ul>
   <ul class="nav nav-sidebar">

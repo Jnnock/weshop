@@ -35,12 +35,12 @@
           <ul class="nav navbar-nav visible-xs visible-sm">
             <li><a href="__APP__/Index/manageType">管理分类</a></li>
             <li><a href="__APP__/Index/addGoods">添加商品</a></li>
-            <li><a href="__APP__/Index/list">商品列表</a></li>
+            <li><a href="__APP__/Index/listAction">商品列表</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">设置 <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#">自提站点设置</a></li>
-                <li><a href="#">用户管理</a></li>
+                <li><a href="__APP__/Index/selfInvite">自提站点设置</a></li>
+                <li><a href="__APP__/Index/users">用户管理</a></li>
                 <li><a href="#">管理员管理</a></li>
               </ul>
             </li>
@@ -57,7 +57,8 @@
       </div>
     </nav>
 
-
+  <?php
+ $type=[]; ?>
   <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
@@ -67,11 +68,11 @@
   <ul class="nav nav-sidebar">
     <li id="manageType"><a href="__APP__/Index/manageType">管理商品分类</a></li>
     <li id="addGoods"><a href="__APP__/Index/addGoods">添加商品</a></li>
-    <li id="list"><a href="__APP__/Index/list">修改商品信息</a></li>
+    <li id="list"><a href="__APP__/Index/listAction">修改商品信息</a></li>
   </ul>
   <ul class="nav nav-sidebar">
-    <li id="selfGet"><a href="">自提站点管理</a></li>
-    <li id="manageUsers"><a href="">用户管理</a></li>
+    <li id="selfInvite"><a href="__APP__/Index/selfinvite">自提站点管理</a></li>
+    <li id="manageUsers"><a href="__APP__/Index/users">用户管理</a></li>
   </ul>
   <ul class="nav nav-sidebar">
     <li id="manageAdmin"><a href="">管理员管理</a></li>
@@ -79,6 +80,7 @@
   </ul>
 </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <input type="hidden" id="hidCls" value="<?php echo ($value); ?>" />
           <h4>按分类查询</h4>
           <!--<?php if(($mark == 1)): ?><div class="alert alert-dismissable alert-success">
               <button type="button" class="close" data-dismiss="alert">×</button>
@@ -91,10 +93,9 @@
             </div><?php endif; ?>-->
             <div style="margin-top:40px">
               <div class="col-md-2">
-                <select name="category_id" id="category" class="form-control">
+                <select id="category" class="form-control" onchange="typeSearch()">
                   <option value="0">全部分类</option>
-                  <?php if(is_array($type)): foreach($type as $key=>$types): $array=new array(); array_puash($array[$types.id],$types['name']); ?>
-                    <option value="<?php echo ($types["id"]); ?>"><?php echo ($types["name"]); ?></option><?php endforeach; endif; ?>
+                  <?php if(is_array($classify)): foreach($classify as $key=>$type): ?><option value="<?php echo ($type["id"]); ?>"><?php echo ($type["name"]); ?></option><?php endforeach; endif; ?>
                 </select>
               </div>
               <table class="table table-striped table-hover ">
@@ -109,12 +110,14 @@
   <tbody>
     <?php if(is_array($commodity)): foreach($commodity as $key=>$commodity): ?><tr>
       <td>
-        <?php for($i=0; $i<count($array); $i++) { if (isset($array[$i])) { if ($commodity['id'] == $array[$i]) { echo $array[$i]['name']; return; } } } ?>
+        <?php echo ($commodity["id"]); ?>
       </td>
       <td>
-        <?php echo ($commodity["categor_id"]); ?></td>
+        <?php
+ $typeId = $commodity['category_id']; if (isset($type[$typeId])) { echo $type[$typeId]; } else { header("Content-Type: text/html; charset=utf-8"); $con = mysql_connect('127.0.0.1','root','liu1feng'); mysql_query("SET NAMES utf8"); mysql_select_db('weshop',$con); $sql = 'select * from category where id='.$typeId; $result = mysql_query($sql); while ($row = mysql_fetch_array($result)) { echo $row['name']; $type[$row['id']] = $row['name']; } } ?>  
+      </td>
       <td><?php echo ($commodity["name"]); ?></td>
-      <td>Column content</td>
+      <td>查看 删除</td>
     </tr><?php endforeach; endif; ?>
   </tbody>
 </table> 
@@ -132,10 +135,19 @@
     
     <script src="__ROOT__/public/js/admin.js"></script>
     <script type="text/javascript">
-      var PUBLIC = "__PUBLIC__";
-      var ROOT = "__ROOT__";
-      var APP = "__APP__";
-      document.getElementById('list').className += " active";
+        var PUBLIC = "__PUBLIC__";
+        var ROOT = "__ROOT__";
+        var APP = "__APP__";
+        document.getElementById('list').className += " active";
+        window.onload = function () {
+            var slt=document.getElementById("category");
+            for(var i=0;i<slt.options.length;i++) {
+                if(slt.options[i].value == document.getElementById('hidCls').value){
+                    slt.options[i].selected = true;
+                    return;
+                }
+            }
+        }
     </script> 
   </body>
 </html>

@@ -20,11 +20,14 @@
   </head>
   <body>
 	<include file="Public:header" />
-
+  <?php
+  $type=[];
+  ?>
   <div class="container-fluid">
       <div class="row">
         <include file="Public:nav" />
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <input type="hidden" id="hidCls" value="{$value}" />
           <h4>按分类查询</h4>
           <!--<if condition="($mark eq 1)">
             <div class="alert alert-dismissable alert-success">
@@ -39,14 +42,10 @@
           </if>-->
             <div style="margin-top:40px">
               <div class="col-md-2">
-                <select name="category_id" id="category" class="form-control">
+                <select id="category" class="form-control" onchange="typeSearch()">
                   <option value="0">全部分类</option>
-                  <foreach name="type" item="types">  
-                    <php>
-                      $array=new array();
-                      array_puash($array[$types.id],$types['name']);
-                    </php>
-                    <option value="{$types.id}">{$types.name}</option>
+                  <foreach name="classify" item="type">  
+                    <option value="{$type.id}">{$type.name}</option>
                   </foreach>
                 </select>
               </div>
@@ -63,21 +62,39 @@
     <foreach name="commodity" item="commodity">
     <tr>
       <td>
-        <php>
-        for($i=0; $i<count($array); $i++) {
-          if (isset($array[$i])) {
-            if ($commodity['id'] == $array[$i]) {
-              echo $array[$i]['name'];
-              return;
-            }
-          }
-        }
-        </php>
+        {$commodity.id}
       </td>
       <td>
-        {$commodity.categor_id}</td>
+        <?php
+        $typeId = $commodity['category_id'];
+
+        if (isset($type[$typeId])) {
+            echo $type[$typeId]; 
+        } else {
+        /*while ($keys = key($type)) {
+          if ($typeId == $keys) {
+            //echo $commodity['category_id']+"----"+$keys;
+            echo $type[$keys]+'~'; 
+            next($type);
+          } else {
+            next($type);
+          }
+        }*/
+            header("Content-Type: text/html; charset=utf-8");
+            $con = mysql_connect('127.0.0.1','root','liu1feng');
+            mysql_query("SET NAMES utf8");
+            mysql_select_db('weshop',$con);
+            $sql = 'select * from category where id='.$typeId;
+            $result = mysql_query($sql);
+            while ($row = mysql_fetch_array($result)) {
+                echo $row['name'];
+                $type[$row['id']] = $row['name'];
+            }
+        }
+      ?>  
+      </td>
       <td>{$commodity.name}</td>
-      <td>Column content</td>
+      <td>查看 删除</td>
     </tr>
     </foreach>
   </tbody>
@@ -96,10 +113,19 @@
     
     <script src="__ROOT__/public/js/admin.js"></script>
     <script type="text/javascript">
-      var PUBLIC = "__PUBLIC__";
-      var ROOT = "__ROOT__";
-      var APP = "__APP__";
-      document.getElementById('list').className += " active";
+        var PUBLIC = "__PUBLIC__";
+        var ROOT = "__ROOT__";
+        var APP = "__APP__";
+        document.getElementById('list').className += " active";
+        window.onload = function () {
+            var slt=document.getElementById("category");
+            for(var i=0;i<slt.options.length;i++) {
+                if(slt.options[i].value == document.getElementById('hidCls').value){
+                    slt.options[i].selected = true;
+                    return;
+                }
+            }
+        }
     </script> 
   </body>
 </html>

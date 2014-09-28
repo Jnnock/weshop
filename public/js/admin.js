@@ -43,9 +43,49 @@ function addType () {
 	xmlHttp.send(); 
 }
 
+function addAdr() {
+	createXMLRequest();
+	var city = document.getElementById('city').value;
+	var area = document.getElementById('area').value;
+	var detail = document.getElementById('detail').value;
+	var url= APP+"/Index/addAdr?city="+city+"&area="+area+"&detail="+detail;
+	xmlHttp.open("GET",url);
+	xmlHttp.onreadystatechange=function(){
+		//if(xmlHttp.readyState==4 && xmlHttp.status==200){
+		 if(xmlHttp.responseText==1){
+		 	document.getElementById('addSuccess').style.display = 'block';
+		 	document.getElementById('addError').style.display = 'none';
+		 } else {
+		 	document.getElementById('addError').style.display = 'block';
+		 	document.getElementById('addSuccess').style.display = 'none';
+		 }
+		//alert(secret);
+	};
+	xmlHttp.send(); 
+}
+
 function deleteType (id) {
 	createXMLRequest();
 	var url= APP+"/Index/delType?typeid="+id;
+	xmlHttp.open("GET",url);
+	xmlHttp.onreadystatechange=function(){
+		//if(xmlHttp.readyState==4 && xmlHttp.status==200){
+		 if(xmlHttp.responseText==1){
+		 	document.getElementById('type'+id).style.display = 'none';
+		 	$('#showResult').modal('show');
+		 	document.getElementById('changeResult').innerHTML = "删除成功～！";
+		 } else {
+		 	$('#showResult').modal('show');
+		 	document.getElementById('changeResult').innerHTML = '删除失败～！';
+		 }
+		//alert(secret);
+	};
+	xmlHttp.send(); 
+}
+
+function deleteAdr (id) {
+	createXMLRequest();
+	var url= APP+"/Index/delAdr?adrid="+id;
 	xmlHttp.open("GET",url);
 	xmlHttp.onreadystatechange=function(){
 		//if(xmlHttp.readyState==4 && xmlHttp.status==200){
@@ -97,3 +137,26 @@ function addImage () {
 	var area = document.getElementById('')
 }
 
+function getArea() {
+	createXMLRequest();
+	var value=document.getElementById('city').value;
+	var url=APP+"/Index/getArea?city="+value;
+	xmlHttp.open("GET",url);
+	xmlHttp.onreadystatechange=function(){
+		if(xmlHttp.readyState==4 && xmlHttp.status==200){
+			var myObj = eval(xmlHttp.responseText);
+			document.getElementById('area').options.length=0;
+			for(var i=0;i<myObj.length;i++){
+				//var o=result[i].split('*');
+				//alert(myObj[i].id)
+				document.getElementById('area').add(new Option(myObj[i].area,myObj[i].id));
+			}
+		}
+	};
+	xmlHttp.send(); 
+}
+
+function typeSearch() {
+	var value = document.getElementById('category').value;
+	window.location = APP+"/Index/listAction?method="+value;
+}
