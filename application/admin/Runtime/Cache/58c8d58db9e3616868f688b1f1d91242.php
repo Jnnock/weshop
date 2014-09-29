@@ -103,13 +103,13 @@
               <div class="col-md-2">
                   <div class="input-group">
                     <span class="input-group-addon">¥ </span>
-                    <input type="text" class="form-control">
+                    <input type="text" name="price" class="form-control">
                   </div>
               </div>
               <div class="col-md-3">
                   <div class="input-group">
                     <span class="input-group-addon">规格 </span>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="standrad">
                     <span class="input-group-addon">g</span>
                   </div>
               </div>

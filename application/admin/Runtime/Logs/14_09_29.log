@@ -1,0 +1,182 @@
+[ 2014-09-29T09:19:38+08:00 ] 0.0.0.0 /weshop/admin.php/Index/addGoods
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.001293s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001621s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000938s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001072s ]
+NOTIC: [8] Undefined index: adminUserId /Users/apple/Documents/www/weshop/application/admin/Lib/Action/IndexAction.class.php 第 89 行.
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.014652s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014735s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000592s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000788s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000614s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000781s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002986s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.001060s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001141s ]
+
+[ 2014-09-29T17:37:16+08:00 ] 192.168.1.130 /weshop/admin.php
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000264s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000312s ]
+NOTIC: [8] Undefined index: adminUserId /Users/apple/Documents/www/weshop/application/admin/Lib/Action/IndexAction.class.php 第 5 行.
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.004241s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004304s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000166s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000178s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000097s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000179s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000694s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000281s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000306s ]
+
+[ 2014-09-29T17:37:32+08:00 ] 192.168.1.130 /weshop/admin.php/Index/sign
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000461s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000518s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000305s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000349s ]
+SQL: SHOW COLUMNS FROM `users` [ RunTime:0.010336s ]
+SQL: SELECT * FROM `users` WHERE ( phone=15692383272 ) LIMIT 1   [ RunTime:0.001044s ]
+
+[ 2014-09-29T17:37:32+08:00 ] 192.168.1.130 /weshop/admin.php/Index/index
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000450s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000506s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000300s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000343s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.010811s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010886s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000321s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000366s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000186s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000347s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001373s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000541s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000608s ]
+
+[ 2014-09-29T17:37:56+08:00 ] 192.168.1.130 /weshop/admin.php/Index/addGoods
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000351s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000394s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000226s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000260s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.009276s ]
+SQL: SELECT * FROM `category`  [ RunTime:0.000309s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: mark /Users/apple/Documents/www/weshop/application/admin/Runtime/Cache/58c8d58db9e3616868f688b1f1d91242.php 第 83 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.006592s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006636s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000189s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000197s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000103s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000190s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000758s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000289s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000316s ]
+
+[ 2014-09-29T17:38:04+08:00 ] 192.168.1.130 /weshop/admin.php/Index/listAction
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000340s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000384s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000227s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000260s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.009811s ]
+NOTIC: [8] Undefined index: method /Users/apple/Documents/www/weshop/application/admin/Lib/Action/IndexAction.class.php 第 128 行.
+NOTIC: [8] Undefined index: method /Users/apple/Documents/www/weshop/application/admin/Lib/Action/IndexAction.class.php 第 131 行.
+SQL: SELECT * FROM `goods`  [ RunTime:0.000614s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.001444s ]
+SQL: SELECT * FROM `category`  [ RunTime:0.000320s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: mark /Users/apple/Documents/www/weshop/application/admin/Runtime/Cache/a830ffcdb72d4a88f7afb392880d7873.php 第 85 行.
+NOTIC: [8] Undefined variable: count /Users/apple/Documents/www/weshop/application/admin/Runtime/Cache/a830ffcdb72d4a88f7afb392880d7873.php 第 104 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.009849s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009912s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000252s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000259s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000119s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000216s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000937s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000354s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000390s ]
+
+[ 2014-09-29T17:38:08+08:00 ] 192.168.1.130 /weshop/admin.php/Index/delGoods?goodsid=18
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000456s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000515s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000307s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000353s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.008946s ]
+SQL: DELETE FROM `goods` WHERE ( id=18 ) [ RunTime:0.001925s ]
+
+[ 2014-09-29T17:38:18+08:00 ] 192.168.1.130 /weshop/admin.php/Index/users
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000459s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000514s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000309s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000353s ]
+SQL: SHOW COLUMNS FROM `users` [ RunTime:0.010431s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `users` LIMIT 1   [ RunTime:0.000386s ]
+SQL: SELECT * FROM `users` ORDER BY reg_time DESC LIMIT 0,10   [ RunTime:0.000469s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: mark /Users/apple/Documents/www/weshop/application/admin/Runtime/Cache/87a0881615f5f31abb5f5680c353555e.php 第 83 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008531s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008601s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000283s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000302s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000164s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000279s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001142s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000375s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000412s ]
+
+[ 2014-09-29T17:38:23+08:00 ] 192.168.1.130 /weshop/admin.php/Index/listAction
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000460s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000515s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000303s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000347s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.009567s ]
+NOTIC: [8] Undefined index: method /Users/apple/Documents/www/weshop/application/admin/Lib/Action/IndexAction.class.php 第 128 行.
+NOTIC: [8] Undefined index: method /Users/apple/Documents/www/weshop/application/admin/Lib/Action/IndexAction.class.php 第 131 行.
+SQL: SELECT * FROM `goods`  [ RunTime:0.000360s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.001393s ]
+SQL: SELECT * FROM `category`  [ RunTime:0.000353s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: mark /Users/apple/Documents/www/weshop/application/admin/Runtime/Cache/a830ffcdb72d4a88f7afb392880d7873.php 第 85 行.
+NOTIC: [8] Undefined variable: count /Users/apple/Documents/www/weshop/application/admin/Runtime/Cache/a830ffcdb72d4a88f7afb392880d7873.php 第 104 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.008667s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008726s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000260s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000230s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000116s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000217s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000911s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000325s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000363s ]
+

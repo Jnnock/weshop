@@ -11,8 +11,8 @@
     <!-- Bootstrap -->
      <!-- Bootstrap -->
     <link href="__ROOT__/library/bootstrap/bootstrap.css" rel="stylesheet">
-	<link href="__ROOT__/public/css/all.css" rel="stylesheet">
-	<link href="__ROOT__/public/css/products.css" rel="stylesheet">
+  <link href="__ROOT__/public/css/scojs.css" rel="stylesheet">
+    <link href="__ROOT__/public/css/sco.message.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -20,66 +20,90 @@
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body style="margin-top:84px">
 	<include file="Public:header" />
-  	
+  	<?php
+    $allGoods = [];
+    ?>
     <div class="container theFirstDivSep">
 <!-- 产品介绍 缩略图 -->
-		<div class="row">
-
+		<div class="row visible-md visible-lg">
+      <input type="hidden" value="{$value}" id="navId" /> 
       <div class="col-md-3">
-        <div class="bs-component hidden-xs">
+        <div class="bs-component">
               <div class="list-group">
-                <a href="#" class="list-group-item active"><b>全部分类</b></a>
-                <a href="#" class="list-group-item"><b>荤菜</b></a>
-                <a href="#" class="list-group-item"><b>素菜</b></a>
-                <a href="#" class="list-group-item"><b>汤类</b></a>
-                <a href="#" class="list-group-item"><b>食材</b></a>
+                <a href="__APP__/Products/index" class="list-group-item" id="list0"><b>全部分类</b></a>
+                <?php
+                for ($i=0; $i < count($type); $i++) { 
+                    $key=key($type);
+                    echo "<a href='__APP__/Products/index?type=".$key."'class='list-group-item' id='list".$key."'><b>".$type[$key]."</b></a>";
+                    next($type);
+                }
+                ?>
               </div>
           </div>
         </div> <!-- NAV -->
 
       <div class="col-md-1"></div>
-
       <div class="col-md-8">
         <div class="row"> 
-          <div class="col-md-6">
-            <div class="well">
-              看，我是一款商品
+          <foreach name="list" item="list">
+            <div class="col-md-6">
+              <div class="well">
+                <div class="row">
+                  <div class="col-md-3"><img src="__ROOT__/public/upload/{$list.image}" width="150"></div>
+                  <div class="col-md-3"></div>
+                  <div class="col-md-5">
+                    <p><b><a href="__APP__/Products/theProduct?good={$list.id}">{$list.name}</a></b></p>
+                    <p style="width:150px;color:red;overflow: hidden;white-space: nowrap;word-break: keep-all;text-overflow: ellipsis;">{$list.word}</p>
+                    <p style="width:150px;overflow: hidden;white-space: nowrap;word-break: keep-all;text-overflow: ellipsis;">配料:{$list.dosing}</p>
+                    <p><a href="javascript:void(0)" class="btn btn-primary" onclick="addToCart({$list.id})"><span class="glyphicon glyphicon-shopping-cart"></span> ｜ 加入购物车</a></p>
+                    <?php
+                      $allGoods[$list['id']] = array(
+                        'name' => $list['name'],
+                        'word' => $list['word'],
+                        'dosing' => $list['dosing'],
+                        'image' => $list['image'],
+                        'price' => $list['price'],
+                      );
+                    ?>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-md-6">
-            <div class="well">
-              看，我是一款商品
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="well">
-              看，我是一款商品
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="well">
-              看，我是一款商品
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="well">
-              看，我是一款商品
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="well">
-              看，我是一款商品
-            </div>
-          </div>
-
-
+          </foreach>
         </div>
-
+      {$page}
       </div>
 
-      </div>  <!-- ROW -->
+      </div>  <!-- PC ROW -->
+
+      <div class="container visible-sm visible-xs">
+        <div class="row">
+          <?php
+          for ($i=0; $i <count($allGoods) ; $i++) { 
+            $key = key($allGoods);
+          ?>
+              <div class="well col-xs-12">
+                  <!--<div class="col-xs-3" style="margin-left:-20px"><img src="__ROOT__/public/upload/<?php echo $allGoods[$key]['image']; ?>" width="100">-->
+                  <div class="col-xs-3" style="margin-left:-20px"><img src="__ROOT__/public/img/123.jpg" width="100">
+                  <p style="margin-top:7px"><span class="label label-primary"><b>¥ <?php echo $allGoods[$key]['price']; ?></b></span></p>
+                  </div>
+                  <div class="col-xs-3"></div>
+                  <div class="col-xs-5">
+                    <p><b><a href="__APP__/Products/theProduct?good=<?php echo $key; ?>"><?php echo $allGoods[$key]['name']; ?></a></b></p>
+                    <p style="width:120px;color:red;overflow: hidden;white-space: nowrap;word-break: keep-all;text-overflow: ellipsis;"><?php echo $allGoods[$key]['word']; ?></p>
+                    <p style="width:120px;overflow: hidden;white-space: nowrap;word-break: keep-all;text-overflow: ellipsis;">配料:<?php echo $allGoods[$key]['dosing']; ?></p>
+                    <p><a href="javascript:void(0)" class="btn btn-primary btn-xs" onclick="addToCart(<?php echo $key; ?>)"><span class="glyphicon glyphicon-shopping-cart"></span>｜加入购物车</a></p>
+                  </div>
+              </div>
+          <?php
+          next($allGoods);
+          }
+          echo $page;
+          ?>
+        </div>
+      </div><!-- MOBILE ROW -->
 
 		</div> <!-- CONTAINER -->
 	
@@ -89,10 +113,17 @@
     <script src="__ROOT__/library/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="__ROOT__/library/bootstrap/bootstrap.min.js"></script>
-  	<script type="text/javascript">
-    	$(function() {
-    		$("#header2").attr("class","active");
-    	});
+    <script src="__ROOT__/public/js/sco.message.js"></script>
+    <script src="__ROOT__/public/js/addToCart.js"></script>
+    <script type="text/javascript">
+    var PUBLIC = "__PUBLIC__";
+      var ROOT = "__ROOT__";
+      var APP = "__APP__";
+      var navNum = document.getElementById('navId').value;
+      if (navNum == "") {
+        document.getElementById('list0').className += " active";  
+      }
+      document.getElementById('list'+navNum).className += " active";
     </script>
   </body>
 </html>

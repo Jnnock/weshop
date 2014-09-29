@@ -11,7 +11,7 @@
     <!-- Bootstrap -->
     <link href="__ROOT__/library/bootstrap/bootstrap.css" rel="stylesheet">
 	<link href="__ROOT__/public/css/login.css" rel="stylesheet">
-	<link href="__ROOT__/public/css/index.css" rel="stylesheet">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -19,7 +19,7 @@
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body style="background-color:#F2F2F2;">
+  <body>
 
       <div class="container">
   <!-- 导航条 -->
@@ -38,10 +38,12 @@
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><span class="glyphicon glyphicon-th-list"> 分类 </span><span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="themes">
-                <li><a href="../default/">荤菜</a></li>
-                <li><a href="javascript:void(0)">素菜</a></li>
-                <li><a href="javascript:void(0)">汤类</a></li>
-                <li><a href="javascript:void(0)">食材</a></li>
+                <?php
+ $type = []; ?>
+                <?php if(is_array($c)): foreach($c as $key=>$c): ?><li><a href="__APP__/Products/index?type=<?php echo ($c["id"]); ?>">
+                  <?php
+ $type[$c['id']] = $c['name']; echo $c['name']; ?>
+                  </a></li><?php endforeach; endif; ?>
                 <!--<li class="divider"></li>-->
               </ul>
             </li>
@@ -71,12 +73,22 @@
                 <input type="checkbox" value="remember-me"> Remember me
               </label>
             </div>-->
-            <div class="row col-md-6">
-              <button class="btn btn-lg btn-primary btn-block" onclick="signIn()" type="button">Sign in</button>
+            <div class="visible-md visible-lg">
+              <div class="row col-md-6">
+                <button class="btn btn-lg btn-primary btn-block" onclick="signIn()" type="button">Sign in</button>
+              </div>
+              <div class="row col-md-3"></div>
+              <div class="row col-md-6">
+                <button class="btn btn-lg btn-info btn-block" type="button" onclick="register()">Register</button>
+              </div>
             </div>
-            <div class="row col-md-3"></div>
-            <div class="row col-md-6">
-              <button class="btn btn-lg btn-info btn-block" type="button" onclick="register()">Register</button>
+            <div class="visible-sm visible-xs row">
+              <div class="col-xs-6">
+                <button class="btn btn-lg btn-primary btn-block" onclick="signIn()" type="button">登入</button>
+              </div>
+              <div class="col-xs-6">
+                <button class="btn btn-lg btn-info btn-block" type="button" onclick="register()">注册</button>
+              </div>
             </div>
           </form><!-- SIGN IN -->
 
@@ -88,12 +100,22 @@
             <input type="email" class="form-control" placeholder="您的邮箱" id="regEmail" required>
             <input type="text" class="form-control" placeholder="您的手机号码" id="regPhone" required>
             <input type="password" class="form-control" placeholder="设置您的密码" id="regPwd" required>
-            <div class="row col-md-6">
-              <button class="btn btn-lg btn-primary btn-block" type="button" onclick="returnToSign()">Return</button>
+            <div class="visible-md visible-lg">
+              <div class="row col-md-6">
+                <button class="btn btn-lg btn-primary btn-block" type="button" onclick="returnToSign()">Return</button>
+              </div>
+              <div class="row col-md-3"></div>
+              <div class="row col-md-6">
+                <button class="btn btn-lg btn-info btn-block" type="button" onclick="registerAccount()">Register</button>
+              </div>
             </div>
-            <div class="row col-md-3"></div>
-            <div class="row col-md-6">
-              <button class="btn btn-lg btn-info btn-block" type="button" onclick="registerAccount()">Register</button>
+            <div class="visible-xs visible-sm">
+              <div class="col-xs-5">
+                <button class="btn btn-lg btn-primary btn-block" type="button" onclick="returnToSign()">返回</button>
+              </div>
+              <div class="col-xs-7">
+                <button class="btn btn-lg btn-info btn-block" type="button" onclick="registerAccount()">确认</button>
+              </div>
             </div>
           </form><!-- REGISTER -->
 

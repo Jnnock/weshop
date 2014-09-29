@@ -11,7 +11,7 @@
     <!-- Bootstrap -->
     <link href="__ROOT__/library/bootstrap/bootstrap.css" rel="stylesheet">
 	<link href="__ROOT__/public/css/login.css" rel="stylesheet">
-	<link href="__ROOT__/public/css/index.css" rel="stylesheet">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -19,7 +19,7 @@
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body style="background-color:#F2F2F2;">
+  <body>
 
       <div class="container">
   <include file="Public:header" /> <!-- NAV BAR -->
@@ -34,12 +34,22 @@
                 <input type="checkbox" value="remember-me"> Remember me
               </label>
             </div>-->
-            <div class="row col-md-6">
-              <button class="btn btn-lg btn-primary btn-block" onclick="signIn()" type="button">Sign in</button>
+            <div class="visible-md visible-lg">
+              <div class="row col-md-6">
+                <button class="btn btn-lg btn-primary btn-block" onclick="signIn()" type="button">Sign in</button>
+              </div>
+              <div class="row col-md-3"></div>
+              <div class="row col-md-6">
+                <button class="btn btn-lg btn-info btn-block" type="button" onclick="register()">Register</button>
+              </div>
             </div>
-            <div class="row col-md-3"></div>
-            <div class="row col-md-6">
-              <button class="btn btn-lg btn-info btn-block" type="button" onclick="register()">Register</button>
+            <div class="visible-sm visible-xs row">
+              <div class="col-xs-6">
+                <button class="btn btn-lg btn-primary btn-block" onclick="signIn()" type="button">登入</button>
+              </div>
+              <div class="col-xs-6">
+                <button class="btn btn-lg btn-info btn-block" type="button" onclick="register()">注册</button>
+              </div>
             </div>
           </form><!-- SIGN IN -->
 
@@ -51,12 +61,22 @@
             <input type="email" class="form-control" placeholder="您的邮箱" id="regEmail" required>
             <input type="text" class="form-control" placeholder="您的手机号码" id="regPhone" required>
             <input type="password" class="form-control" placeholder="设置您的密码" id="regPwd" required>
-            <div class="row col-md-6">
-              <button class="btn btn-lg btn-primary btn-block" type="button" onclick="returnToSign()">Return</button>
+            <div class="visible-md visible-lg">
+              <div class="row col-md-6">
+                <button class="btn btn-lg btn-primary btn-block" type="button" onclick="returnToSign()">Return</button>
+              </div>
+              <div class="row col-md-3"></div>
+              <div class="row col-md-6">
+                <button class="btn btn-lg btn-info btn-block" type="button" onclick="registerAccount()">Register</button>
+              </div>
             </div>
-            <div class="row col-md-3"></div>
-            <div class="row col-md-6">
-              <button class="btn btn-lg btn-info btn-block" type="button" onclick="registerAccount()">Register</button>
+            <div class="visible-xs visible-sm">
+              <div class="col-xs-5">
+                <button class="btn btn-lg btn-primary btn-block" type="button" onclick="returnToSign()">返回</button>
+              </div>
+              <div class="col-xs-7">
+                <button class="btn btn-lg btn-info btn-block" type="button" onclick="registerAccount()">确认</button>
+              </div>
             </div>
           </form><!-- REGISTER -->
 

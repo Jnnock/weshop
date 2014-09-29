@@ -39,10 +39,12 @@
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><span class="glyphicon glyphicon-th-list"> 分类 </span><span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="themes">
-                <li><a href="../default/">荤菜</a></li>
-                <li><a href="javascript:void(0)">素菜</a></li>
-                <li><a href="javascript:void(0)">汤类</a></li>
-                <li><a href="javascript:void(0)">食材</a></li>
+                <?php
+ $type = []; ?>
+                <?php if(is_array($c)): foreach($c as $key=>$c): ?><li><a href="__APP__/Products/index?type=<?php echo ($c["id"]); ?>">
+                  <?php
+ $type[$c['id']] = $c['name']; echo $c['name']; ?>
+                  </a></li><?php endforeach; endif; ?>
                 <!--<li class="divider"></li>-->
               </ul>
             </li>

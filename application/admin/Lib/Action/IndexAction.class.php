@@ -23,14 +23,11 @@ class IndexAction extends BaseAction {
 	}
 
 	public function index() {
-		//$managers = M('managers');
-
-		//$TokenResult=$managers->autoCheckToken($_POST);
-		//echo $TokenResult;
-		//$name=$_POST['name'];
-		//$psw=$_POST['password'];
-
-		$this->display("");
+		if ($_SESSION['adminUserId']) {
+			$this->display("index");
+		} else {
+			$this->display("login");
+		}
 	}
 
 	public function out() {

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="zh-cn">
   <head>
     <meta charset="utf-8">
@@ -20,9 +20,47 @@
   </head>
   <body>
     <?php
-    $goods = [];
-    ?>
-    <include file="Public:header" />
+ $goods = []; ?>
+    <!-- 导航条 -->
+		<div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="../" class="navbar-brand" style="color:green"><b>绿行者</b></a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><span class="glyphicon glyphicon-th-list"> 分类 </span><span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="themes">
+                <?php
+ $type = []; ?>
+                <?php if(is_array($c)): foreach($c as $key=>$c): ?><li><a href="__APP__/Products/index?type=<?php echo ($c["id"]); ?>">
+                  <?php
+ $type[$c['id']] = $c['name']; echo $c['name']; ?>
+                  </a></li><?php endforeach; endif; ?>
+                <!--<li class="divider"></li>-->
+              </ul>
+            </li>
+            <li>
+              <a href="__APP__/Index/home"><span class="glyphicon glyphicon-user"> 用户</span></a>
+            </li>
+            <li>
+              <a href="__APP__/Products/index"><span class="glyphicon glyphicon-list-alt"> 全部分类</span></a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="__APP__/Index/aboutus"><span class="glyphicon glyphicon-info-sign"> 关于我们</span></a></li>
+            <li><a href="__APP__/Products/cart" target="_blank"><span class="glyphicon glyphicon-shopping-cart"> 购物车</span></a></li>
+          </ul>
+        </div>
+      </div>
+      </div> 
+<!-- NAV BAR -->
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
@@ -32,15 +70,7 @@
           </div>
         </div>
       </div>
-      <foreach name="need" item="need">
-        <?php
-            header("Content-Type: text/html; charset=utf-8");
-            $con = mysql_connect('127.0.0.1','root','liu1feng');
-            mysql_query("SET NAMES utf8");
-            mysql_select_db('weshop',$con);
-            $result = $sql = "select * from goods where id = ".$need['goods_id'];
-            while ($row = mysql_fetch_array($result)) {
-        ?>
+      <?php if(is_array($need)): foreach($need as $key=>$need): header("Content-Type: text/html; charset=utf-8"); $con = mysql_connect('127.0.0.1','root','liu1feng'); mysql_query("SET NAMES utf8"); mysql_select_db('weshop',$con); $result = $sql = "select * from goods where id = ".$need['goods_id']; while ($row = mysql_fetch_array($result)) { ?>
       <div class="panel panel-primary">
         <div class="panel-heading"><strong><?php echo $row['name']; ?></strong></div>
         <input type="hidden" name="goodsId" value="<?php echo $row['id']; ?><" />
@@ -70,9 +100,7 @@
         </div>
       </div>
       <?php
-            }
-        ?>
-    </foreach>
+ } endforeach; endif; ?>
     <div class="row">
       <div class="col-md-6">
     <div class="panel panel-primary visible-md visible-lg ">
