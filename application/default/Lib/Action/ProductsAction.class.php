@@ -41,16 +41,37 @@ class ProductsAction extends BaseAction {
 	}
 
 	public function cart() {
-		$cart = M("Cart");
-		$this->need = $cart->select();
-		$this->display("cart");
+		if ($_SESSION['userId'] == "") {
+			$category = M("Category");
+			$this->c = $category->select();
+			$this->display("Index/login");
+		} else {
+			$cart = M("Cart");
+			$this->need = $cart->where("user_id={$_SESSION['userId']}")->select();
+			//$this->assign("user", $SESSION['userId']);
+			$this->display("cart");
+		}
 	}
 
 	public function addCart() {
+		if ($_SESSION['userId'] == "") {
+			echo 2;
+		} else {
+			$cart = M("Cart");
+			$data['goods_id'] = $_GET['goods'];
+			$data['user_id'] = $_SESSION['userId'];
+			$result = $cart->add($data);
+			if ($result) {
+				echo 1;
+			} else {
+				echo 0;
+			}
+		}
+	}
+
+	public function delCart() {
 		$cart = M("Cart");
-		$data['goods_id'] = $_GET['goods'];
-		$data['user_id'] = $_SESSION['userId'];
-		$result = $cart->add($data);
+		$result = $cart->where("id=" . $_GET['goods'])->delete();
 		if ($result) {
 			echo 1;
 		} else {

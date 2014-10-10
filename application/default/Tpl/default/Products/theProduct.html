@@ -46,12 +46,11 @@
               <p>规格: {$commodity.standrad}g 产地: {$commodity.position}</p>
               <div class="row">
                 <div class="col-md-5" style="color:red;font-size:20px">¥{$commodity.price}</div>
-                <div class="btn-group col-md-7">
-                  <a href="#" class="btn btn-info">立即购买～</a>
-                  <a href="#" class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="javascript:void(0)" onclick="addToCart({$commodity.id})">加入购物车</a></li>
-                  </ul>
+                <div class="col-md-4">
+                  <a href="#" class="btn btn-info btn-sm">立即购买～</a>
+                </div>
+                <div class="col-md-3">
+                   <a href="javascript:void(0)" class="btn btn-primary btn-sm" onclick="addToCart({$commodity.id})">加入购物车</a>
                 </div>
               </div>
             </div>

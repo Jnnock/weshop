@@ -10,13 +10,20 @@
     <!-- Bootstrap -->
     <!-- Bootstrap -->
     <link href="__ROOT__/library/bootstrap/bootstrap.css" rel="stylesheet">
-    <link href="__ROOT__/public/css/products.css" rel="stylesheet">
+     <link href="__ROOT__/public/css/scojs.css" rel="stylesheet">
+    <link href="__ROOT__/public/css/sco.message.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+        <style type="text/css">
+    body{
+      margin-top:60px;
+      margin-bottom:20px;
+    }
+    </style>
   </head>
   <body>
     <?php
@@ -32,114 +39,129 @@
           </div>
         </div>
       </div>
-      <foreach name="need" item="need">
+      <!-- BROSWER -->
+      <div class="row">
+        <foreach name="need" item="demand">
         <?php
-            header("Content-Type: text/html; charset=utf-8");
-            $con = mysql_connect('127.0.0.1','root','liu1feng');
-            mysql_query("SET NAMES utf8");
-            mysql_select_db('weshop',$con);
-            $result = $sql = "select * from goods where id = ".$need['goods_id'];
-            while ($row = mysql_fetch_array($result)) {
+        header("Content-Type: text/html; charset=utf-8");
+        $con = mysql_connect('127.0.0.1','root','liu1feng');
+        mysql_query("SET NAMES utf8");
+        mysql_select_db('weshop',$con);
+        $sql = "select * from goods where id = ".$demand['goods_id'];
+        $result = mysql_query($sql);
+        while ($row = mysql_fetch_array($result)) {
+          //echo $i;
+          $goods[$i]['name'] = $row['name'];
+          $goods[$i]['image'] = $row['image'];
+          $goods[$i]['id'] = $row['id'];
+          $goods[$i]['price'] = $row['price'];
+          $goods[$i]['standrad'] = $row['standrad'];
+          $goods[$i]['position'] = $row['position'];
+          //$i += 1;
         ?>
-      <div class="panel panel-primary">
-        <div class="panel-heading"><strong><?php echo $row['name']; ?></strong></div>
-        <input type="hidden" name="goodsId" value="<?php echo $row['id']; ?><" />
-        <div class="panel-body">
-          <div class="row">
-            <div class="col-md-4">
-              <img src="__ROOT__/public/upload/<?php echo $row['image']; ?>" />
-            </div>
-            
-            <div class="col-md-1"></div>
-            <div class="col-md-1">
-              数量： 
-            </div>
-            <div class="col-md-1">
-               <select name="count">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-               </select>
-            </div>
-            <div class="col-md-1">
-
+        <div class="col-md-6" id="goodsB<?php echo $demand['id']; ?>">
+          <div class="panel panel-primary visible-md visible-lg ">
+            <div class="panel-heading"><b><?php echo $row['name']; ?></b></div>
+            <input type="hidden" name="goodsId" value="<?php echo $row['id']; ?>" />
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-4">
+                  <img src="__ROOT__/public/upload/<?php echo $row['image']; ?>"  width="150" />
+                </div>
+                
+                <div class="col-md-1"></div>
+                <div class="col-md-7 col-xs-7">
+                  <p><a href="__APP__/Products/theproduct/?good=<?php echo $row['id']; ?>"><h5><?php echo $row['name']; ?></h5></a></p>
+                  <p><b>¥ <?php echo $row['price']; ?></b></p>
+                  <div>规格：<?php echo $row['standrad'] ?>g 产地：<?php echo $row['position']; ?></div>
+                  <label>数量：</label>
+                  <select name="count">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                  <div><a href="javascript:void(0)" onclick="delGoodFromCart(<?php echo $demand['id']; ?>)">从购物车中移除</a></div>
+                </div>
+                <div class="col-md-1">
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <?php
-            }
+        <?php
+        }
         ?>
-    </foreach>
-    <div class="row">
-      <div class="col-md-6">
-    <div class="panel panel-primary visible-md visible-lg ">
-        <div class="panel-heading"><strong>我是一种菜</strong></div>
-        <input type="hidden" name="goodsId" value="123" />
-        <div class="panel-body">
-          <div class="row">
-            <div class="col-md-4 col-xs-4">
-              <img src="__ROOT__/public/img/002_02.png" width="150" />
-            </div>
-            <div class="col-md-1"></div>
-            <div class="col-md-7 col-xs-7">
-              <p><a href="#"><h5>我是一种菜</h5></a></p>
-              <p><b>¥ 20</b></p>
-              <div>规格：300g 产地：青岛</div>
-              <label>数量：</label>
-               <select name="count">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-               </select>
-               <div><a href="jacascript:void(0)">从购物车中移除</a></div>
-            </div>
-            <div class="col-md-1">
+        </foreach>
+      </div>
+      <!-- BROSWER -->
 
+      <!-- MOBILE -->
+     <foreach name="need" item="de">
+        <?php
+        header("Content-Type: text/html; charset=utf-8");
+        $con = mysql_connect('127.0.0.1','root','liu1feng');
+        mysql_query("SET NAMES utf8");
+        mysql_select_db('weshop',$con);
+        $sql = "select * from goods where id = ".$de['goods_id'];
+        $result = mysql_query($sql);
+        $i = 0;
+        while ($row = mysql_fetch_array($result)) {
+          //echo $i;
+          $goods[$i]['name'] = $row['name'];
+          $goods[$i]['image'] = $row['image'];
+          $goods[$i]['id'] = $row['id'];
+          $goods[$i]['price'] = $row['price'];
+          $goods[$i]['standrad'] = $row['standrad'];
+          $goods[$i]['position'] = $row['position'];
+          //$i += 1;
+        ?>
+        <div class="panel panel-primary visible-xs visible-sm" id="goodsM<?php echo $de['id']; ?>">
+          <div class="panel-heading"><b><?php echo $row['name']; ?></b></div>
+          <input type="hidden" name="goodsId" value="<?php echo $row['id']; ?>" />
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-4 col-xs-4">
+                <img src="__ROOT__/public/upload/<?php echo $row['image']; ?>"  width="80" />
+              </div>
+              
+              <div class="col-md-1 col-xs-1"></div>
+              <div class="col-md-2 col-xs-7">
+                <p>规格：<?php echo $row['standrad'] ?>g 产地：<?php echo $row['position']; ?></p>
+                <label>数量：</label>
+                <select name="count">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+                <div><a href="javascript:void(0)" onclick="delGoodFromCart(<?php echo $de['id']; ?>)">从购物车中移除</a></div>
+              </div>
+              <div class="col-md-1">
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    </div>
-
-      <div class="panel panel-primary visible-xs visible-sm">
-        <div class="panel-heading"><strong>我是一种菜</strong></div>
-        <input type="hidden" name="goodsId" value="123" />
-        <div class="panel-body">
-          <div class="row">
-            <div class="col-md-4 col-xs-4">
-              <img src="__ROOT__/public/img/002_02.png" width="80" />
-            </div>
-            
-            <div class="col-md-1 col-xs-1"></div>
-            <div class="col-md-2 col-xs-7">
-              <p>规格：300g 产地：青岛</p>
-              <label>数量：</label>
-               <select name="count">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-               </select>
-               <div><a href="jacascript:void(0)">从购物车中移除</a></div>
-            </div>
-            <div class="col-md-1">
-
-            </div>
-          </div>
-        </div>
-      </div>
+        <?php
+        }
+        ?>
+        </foreach>
+        <!-- MOBILE -->
+      
       <a href="javascript:void(0)" class="btn btn-primary"><span class="glyphicon glyphicon-ok"> | 去结算 </span></a>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="__ROOT__/library/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="__ROOT__/library/bootstrap/bootstrap.min.js"></script>
+    <script src="__ROOT__/public/js/addToCart.js"></script>
+    <script src="__ROOT__/public/js/sco.message.js"></script>
+    <script type="text/javascript">
+      var PUBLIC = "__PUBLIC__";
+      var ROOT = "__ROOT__";
+      var APP = "__APP__";
+    </script>
   </body>
 </html>

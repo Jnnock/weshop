@@ -61,6 +61,8 @@ class IndexAction extends BaseAction {
 			$this->bornTime = $user->where("id={$_SESSION['userId']}")->getField('reg_time');
 			$this->display("home");
 		} else {
+			$category = M("Category");
+			$this->c = $category->select();
 			$this->display("login");
 		}
 	}
@@ -100,6 +102,8 @@ class IndexAction extends BaseAction {
 			$this->adr = $address->where("user_id={$_SESSION['userId']}")->select();
 			$this->display("userAddress");
 		} else {
+			$category = M("Category");
+			$this->c = $category->select();
 			$this->display("login");
 		}
 
@@ -114,6 +118,8 @@ class IndexAction extends BaseAction {
 			$this->name = $info->where("user_id={$_SESSION['userId']}")->getField("name");
 			$this->display("userPwd");
 		} else {
+			$category = M("Category");
+			$this->c = $category->select();
 			$this->display('login');
 		}
 	}
@@ -131,6 +137,8 @@ class IndexAction extends BaseAction {
 			$this->c = $category->select();
 			$this->display("userOrder");
 		} else {
+			$category = M("Category");
+			$this->c = $category->select();
 			$this->display("login");
 		}
 
